@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Tech</title>
+    <style>
+        html {
+            transition: all 0.3s ease-in-out;
+            scrollbar-width: thin;
+            scrollbar-color: #fff #000;
+        }
+
+        /* Chrome, Edge, and Safari */
+        html::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        /* Track for Chrome, Edge, and Safari */
+        html::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        /* Handle for Chrome and Safari */
+        html::-webkit-scrollbar-thumb {
+            background-color: #fff;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+
+    <nav class="fixed w-full h-18 flex justify-around items-center py-4 bg-black mx-auto border-b">
+        <!-- Logo -->
+        <h2 class="cursor-default text-4xl max-md:text-3xl">Tech.</h2>
+
+        <!-- Desktop Menu -->
+        <ul class="flex items-center gap-10 max-sm:hidden">
+            <li class='hover:underline text-[20px] text-[#308d46]'>
+                <a href="/index.html">Home</a>
+            </li>
+            <li class='hover:underline text-[20px]'>
+                <a href="/articles.html">Articles</a>
+            </li>
+            <li class='hover:underline text-[20px]'>
+                <a href="/about.html">About Us</a>
+            </li>
+        </ul>
+
+        <!-- Hamburger Menu -->
+        <div class='sm:hidden text-white cursor-pointer text-2xl' id='openMenu'>
+            <i class="fas fa-bars text-[#308d46]"></i>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden absolute top-[69px] w-full bg-black p-5">
+            <ul class="flex flex-col gap-5 items-center">
+                <li class='hover:underline text-[18px] text-[#308d46]'><a href="/index.html">Home</a></li>
+                <li class='hover:underline text-[18px]'><a href="/articles.html">Articles</a></li>
+                <li class='hover:underline text-[18px]'><a href="/about.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--  -->
+    <!--  -->
+    <div class="container mx-auto p-5 pt-28 mb-20">
+        <h1 class="text-3xl font-bold mb-6 max-sm:text-center">Latest Articles</h1>
+
+        <!-- Articles -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <div class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <img src="https://images.pexels.com/photos/325111/pexels-photo-325111.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Coding on a laptop" class="w-full h-40 object-cover pointer-events-none" />
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-black">Mastering JavaScript</h2>
+                    <p class="text-gray-600 mt-2">Dive into JavaScript, the backbone of web development, and learn how to
+                        create dynamic websites.</p>
+                    <a href="https://medium.com/@hai98/mastering-javascript-a-comprehensive-guide-for-beginners-4cf42eed45fd"
+                        target="_blank" loading="lazy"
+                        class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600"
+                    alt="Coding on a desktop" class="w-full h-40 object-cover pointer-events-none" loading="lazy" />
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-black">Understanding Python</h2>
+                    <p class="text-gray-600 mt-2">Learn Python, a versatile programming language, and explore its
+                        applications in data science and web development.</p>
+                    <a href="https://www.python.org/about/gettingstarted/" target="_blank"
+                        class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <img src="https://images.pexels.com/photos/1181674/pexels-photo-1181674.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600"
+                    alt="Writing code on a notebook" loading="lazy" class="w-full h-40 object-cover pointer-events-none" />
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-black text-black">The Power of HTML & CSS</h2>
+                    <p class="text-gray-600 mt-2">Explore the fundamentals of web design with HTML and CSS, and create
+                        stunning web pages from scratch.</p>
+                    <a href="https://medium.com/@rimonppip0/the-power-of-html-css-building-the-foundation-of-the-web-8d2546f78818"
+                        target="_blank" class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <img src="https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600"
+                    alt="Coding on a tablet" loading="lazy" class="w-full h-40 object-cover pointer-events-none" />
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-black">Introduction to Web Development</h2>
+                    <p class="text-gray-600 mt-2">Begin your journey in web development with this comprehensive guide that
+                        covers the basics and beyond.</p>
+                    <a href="https://www.geeksforgeeks.org/web-development" target="_blank"
+                        class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600"
+                    alt="Collaborative coding session" class="w-full h-40 object-cover pointer-events-none" loading="lazy" />
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-black">Collaboration in Coding</h2>
+                    <p class="text-gray-600 mt-2">Discover best practices for collaboration in coding projects and tools to
+                        enhance teamwork.</p>
+                    <a href="https://www.developernation.net/blog/how-does-collaborative-coding-work" target="_blank"
+                        class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <img src="https://images.pexels.com/photos/3861967/pexels-photo-3861967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600"
+                    alt="Code review session" loading="lazy" class="w-full h-40 object-cover pointer-events-none" />
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-black">Effective Code Review Practices</h2>
+                    <p class="text-gray-600 mt-2">Learn how to conduct effective code reviews to improve code quality and
+                        team performance.</p>
+                    <a href="https://stackoverflow.blog/2019/09/30/how-to-make-good-code-reviews-better" target="_blank"
+                        class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+    <!--  -->
+    <!-- Footer -->
+    <footer class="w-full bg-gray-950 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 <span class="text-[#308d46]">Tech.</span> All Rights Reserved.</p>
+            <div class="mt-2">
+                <a href="#" class="text-[#308d46] hover:text-[#29783b] mx-2">Facebook</a>
+                <a href="#" class="text-[#308d46] hover:text-[#29783b] mx-2">Twitter</a>
+                <a href="#" class="text-[#308d46] hover:text-[#29783b] mx-2">Instagram</a>
+                <a href="#" class="text-[#308d46] hover:text-[#29783b] mx-2">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>

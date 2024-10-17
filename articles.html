@@ -37,7 +37,7 @@
 
     <nav class="fixed w-full h-18 flex justify-around items-center py-4 bg-black mx-auto border-b">
         <!-- Logo -->
-        <h2 class="cursor-default text-4xl max-md:text-3xl">Tech.</h2>
+        <h2 class="cursor-default text-4xl max-md:text-3xl">Tech<span class="text-[#308d46]">.</span></h2>
 
         <!-- Desktop Menu -->
         <ul class="flex items-center gap-10 max-sm:hidden">
@@ -53,8 +53,9 @@
         </ul>
 
         <!-- Hamburger Menu -->
-        <div class='sm:hidden text-white cursor-pointer text-2xl' id='openMenu'>
-            <i class="fas fa-bars text-[#308d46]"></i>
+        <div class='sm:hidden text-white cursor-pointer text-2xl'>
+            <i class="fas fa-bars text-[#308d46]" id='openMenu'></i>
+            <i class="fas fa-times text-[#308d46] hidden" id='closeMenu'></i>
         </div>
 
         <!-- Mobile Menu -->
@@ -67,59 +68,147 @@
         </div>
     </nav>
 
-    <div class="container mx-auto pt-28 mb-20">
-        <!-- Main Section -->
-        <div class="flex flex-col lg:flex-row gap-8">
-            
-            <!-- Articles Section -->
-            <main class="w-full lg:w-3/4">
-                <h1 class="text-4xl font-bold mb-8">Articles</h1>
-                
-                <!-- Articles List -->
-                <div class="space-y-6">
-                    <!-- Individual Article -->
-                    <article class="bg-white shadow-md rounded-lg p-6 flex gap-4">
-                        <img src="thumbnail1.jpg" alt="Article Thumbnail" class="w-32 h-32 object-cover rounded-lg">
-                        <div class="flex flex-col">
-                            <h2 class="text-xl font-semibold">Article Title 1</h2>
-                            <p class="text-gray-500 text-sm">Published on: August 1, 2024</p>
-                            <p class="mt-2 text-gray-700">This is a short summary of the article...</p>
-                            <a href="article1.html" class="text-indigo-600 hover:text-indigo-800 mt-4">Read More</a>
-                        </div>
-                    </article>
-                    
-                    <!-- Repeat more articles as needed -->
-                    <!-- Individual Article Example -->
-                    <article class="bg-white shadow-md rounded-lg p-6 flex gap-4">
-                        <img src="thumbnail2.jpg" alt="Article Thumbnail" class="w-32 h-32 object-cover rounded-lg">
-                        <div class="flex flex-col">
-                            <h2 class="text-xl font-semibold">Article Title 2</h2>
-                            <p class="text-gray-500 text-sm">Published on: August 10, 2024</p>
-                            <p class="mt-2 text-gray-700">This is another article summary...</p>
-                            <a href="article2.html" class="text-indigo-600 hover:text-indigo-800 mt-4">Read More</a>
-                        </div>
-                    </article>
-                </div>
-            </main>
-            
-            <!-- Sidebar Section -->
-            <aside class="w-full lg:w-1/4 bg-white p-6 shadow-md rounded-lg">
-                <h2 class="text-2xl font-bold mb-4">Recent Articles</h2>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-indigo-600 hover:text-indigo-800">Recent Article 1</a></li>
-                    <li><a href="#" class="text-indigo-600 hover:text-indigo-800">Recent Article 2</a></li>
-                    <li><a href="#" class="text-indigo-600 hover:text-indigo-800">Recent Article 3</a></li>
-                </ul>
+    <!--  -->
+    <!--  -->
 
-                <h2 class="text-2xl font-bold mt-8 mb-4">Popular Tags</h2>
-                <div class="flex flex-wrap gap-2">
-                    <a href="#" class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full text-sm">#Technology</a>
-                    <a href="#" class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full text-sm">#WebDevelopment</a>
-                    <a href="#" class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full text-sm">#React</a>
+    <div class="container mx-auto px-4 py-8 pt-28 mb-20 text-black">
+        <!-- Main Section -->
+        <div class="flex flex-wrap max-xl:flex-col">
+            <!-- Articles Section -->
+            <div class="w-full xl:w-3/4 px-4">
+                <h1 class="text-3xl font-bold mb-6">Latest Articles</h1>
+
+                <!-- Article Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg mb-6 p-6 flex">
+                    <div class="w-1/4">
+                        <img src="https://via.placeholder.com/150" alt="Ad Thumbnail 1"
+                            class="rounded-lg object-cover w-full h-full">
+                    </div>
+                    <div class="w-3/4 pl-4">
+                        <h2 class="text-2xl font-semibold mb-2">New Tech Gadgets of 2024</h2>
+                        <p class="text-gray-500 text-sm">Published on: 2024-10-17</p>
+                        <p class="text-gray-700 mt-2">
+                            Explore the latest technology trends of 2024 with a focus on wearable tech, AI-powered
+                            gadgets, and more. Get insights into the most innovative devices hitting the market this
+                            year.
+                        </p>
+                        <a href="https://tech-advertisement.com/article-1"
+                            class="text-blue-500 font-semibold mt-4 inline-block">Read More</a>
+                    </div>
                 </div>
-            </aside>
+
+                <!-- Article Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg mb-6 p-6 flex">
+                    <div class="w-1/4">
+                        <img src="https://via.placeholder.com/150" alt="Ad Thumbnail 2"
+                            class="rounded-lg object-cover w-full h-full">
+                    </div>
+                    <div class="w-3/4 pl-4">
+                        <h2 class="text-2xl font-semibold mb-2">Top Travel Destinations</h2>
+                        <p class="text-gray-500 text-sm">Published on: 2024-10-16</p>
+                        <p class="text-gray-700 mt-2">
+                            Discover the best travel destinations for 2024, from exotic beaches to mountain getaways.
+                            Whether you're looking for adventure or relaxation, these spots are must-visits.
+                        </p>
+                        <a href="https://travel-advertisement.com/article-2"
+                            class="text-blue-500 font-semibold mt-4 inline-block">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Article Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg mb-6 p-6 flex">
+                    <div class="w-1/4">
+                        <img src="https://via.placeholder.com/150" alt="Ad Thumbnail 3"
+                            class="rounded-lg object-cover w-full h-full">
+                    </div>
+                    <div class="w-3/4 pl-4">
+                        <h2 class="text-2xl font-semibold mb-2">Healthy Living Tips</h2>
+                        <p class="text-gray-500 text-sm">Published on: 2024-10-15</p>
+                        <p class="text-gray-700 mt-2">
+                            Learn how to maintain a healthy lifestyle with these expert tips on nutrition, exercise, and
+                            mental wellness. Make small changes today for a healthier tomorrow.
+                        </p>
+                        <a href="https://health-advertisement.com/article-3"
+                            class="text-blue-500 font-semibold mt-4 inline-block">Read More</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sidebar Section -->
+            <div class="w-full lg:w-1/4 px-4">
+                <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                    <a href="https://example-recent-articles.com"
+                        class="text-xl font-semibold mb-4 text-black hover:text-blue-500 transition-colors duration-300">
+                        <h2>Recent Articles</h2>
+                    </a>
+
+                    <p class="text-gray-700 mb-4 sm:text-sm">
+                        Check out these recent articles that cover various topics to keep you informed and inspired.
+                    </p>
+
+                    <ul>
+                        <li class="mb-4 flex">
+                            <h1 class="text-[#308d46] mr-2 font-bold text-4xl">01</h1>
+                            <div>
+                                <a href="https://tech-advertisement.com/article-1"
+                                    class="text-[#308d46] text-xl hover:underline">
+                                    Exciting Innovations in Tech
+                                </a>
+                                <p class="text-gray-600  text-sm">Explore groundbreaking innovations in the tech world,
+                                    including AI developments, smart gadgets, and new software solutions that are
+                                    changing
+                                    the landscape of technology.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="mb-4 flex">
+                            <h1 class="text-[#308d46] mr-2 font-bold text-4xl">02</h1>
+                            <div>
+                                <a href="https://travel-advertisement.com/article-2"
+                                    class="text-[#308d46] text-xl hover:underline">
+                                    Hidden Gems for Travelers
+                                </a>
+                                <p class="text-gray-600 text-sm">Discover off-the-beaten-path destinations that offer
+                                    unique
+                                    experiences and breathtaking views, perfect for adventurous travelers looking for
+                                    something new.</p>
+                            </div>
+                        </li>
+
+                        <li class="mb-4 flex">
+                            <h1 class="text-[#308d46] mr-2 font-bold text-4xl">03</h1>
+                            <div>
+                                <a href="https://health-advertisement.com/article-3"
+                                    class="text-[#308d46] text-xl hover:underline">
+                                    Wellness Trends to Follow
+                                </a>
+                                <p class="text-gray-600 text-sm">Stay ahead of the curve with the latest wellness
+                                    trends, from mindfulness practices to dietary changes that promote better health and
+                                    happiness.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tags -->
+                <div class="bg-white rounded-lg shadow-lg p-5">
+                    <h2 class="text-xl font-semibold mb-4 text-black">Popular Tags</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="/tag/tech" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full">Tech</a>
+                        <a href="/tag/travel" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full">Travel</a>
+                        <a href="/tag/health" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full">Health</a>
+                        <a href="/tag/lifestyle" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full">Lifestyle</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
+
+    <!--  -->
+    <!--  -->
 
     <footer class="w-full bg-gray-950 text-white py-4">
         <div class="container mx-auto text-center">

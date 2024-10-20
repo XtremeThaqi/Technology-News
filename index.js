@@ -1,12 +1,9 @@
 // Mobile Menu
 const openMenu = document.getElementById("openMenu");
-const closeMenu = document.getElementById("closeMenu");
-
 openMenu.addEventListener("click", () => {
   const mobileMenu = document.querySelector(".mobile-menu");
-  mobileMenu.classList.remove("hidden");
+  mobileMenu.classList.toggle("hidden");
 });
-
 
 // Buttons
 const allBtn = document.getElementById("all");
@@ -17,10 +14,16 @@ const businessBtn = document.getElementById("business");
 const techSection = document.querySelectorAll("#tech-section");
 const businessSection = document.querySelectorAll("#business-section");
 
-// Show Tech Section
+// Show All Section
 allBtn.addEventListener('click', () => {
   techSection.forEach(e => e.style.display = 'block');
   businessSection.forEach(e => e.style.display = 'block');
+});
+
+// Show Tech Section
+techBtn.addEventListener('click', () => {
+  techSection.forEach(e => e.style.display = 'block');
+  businessSection.forEach(e => e.style.display = 'none');
 });
 
 // Show Business Section
@@ -29,8 +32,23 @@ businessBtn.addEventListener('click', () => {
   businessSection.forEach(e => e.style.display = 'block');
 });
 
-// Show All Section
-techBtn.addEventListener('click', () => {
-  techSection.forEach(e => e.style.display = 'block');
-  businessSection.forEach(e => e.style.display = 'none');
+// Subscribe Form Event
+const modal = document.getElementById('modal');
+const form = document.getElementById('subscription-form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); // prevent from reloading
+  modal.style.display = "flex"; // show modal
+  form.reset(); // clear the form
+
+  // when 3sec pass modal will wanish
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 3000);
+
 });
+
+// Contact form in about us page
+function showContactForm() {
+
+}

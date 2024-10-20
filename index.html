@@ -35,7 +35,7 @@
 
 <body class="bg-black text-white">
 
-    <nav class="fixed w-full h-18 flex justify-around items-center py-4 bg-black mx-auto border-b">
+    <nav class="fixed w-full h-18 flex justify-around items-center z-10 py-4 bg-black mx-auto border-b">
         <!-- Logo -->
         <h2 class="cursor-default text-4xl max-md:text-3xl">Tech<span class="text-[#308d46]">.</span></h2>
 
@@ -72,8 +72,9 @@
 
     <div class="container mx-auto p-5 pt-28 mb-10">
 
+        <!-- Categories -->
         <div class="flex flex-col gap-3 mb-5">
-            <h2 class="text-3xl font-bold">Categories:</h2>
+            <h2 class="text-4xl font-bold">Categories:</h2>
             <div class="flex gap-3">
                 <button id="all"
                     class="bg-[#308d46] px-3 py-1.5 rounded-[5px] hover:bg-[#29783b] transition-all duration-300">All</button>
@@ -86,14 +87,16 @@
 
         <div class="flex justify-between flex-col items-center mb-6">
             <!-- Articles -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
 
-                <div id="tech-section" class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <!-- Tech Section -->
+                <div id="tech-section"
+                    class="rounded-[5px] rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image1.jpeg" alt="Coding on a laptop"
                         class="w-full h-40 object-cover pointer-events-none" loading="lazy" />
                     <div class="p-4">
-                        <h2 class="text-lg font-semibold text-black">Mastering JavaScript</h2>
-                        <p class="text-gray-600 mt-2">Dive into JavaScript, the backbone of web development, and
+                        <h2 class="text-xl font-semibold text-[#308d46]">Mastering JavaScript</h2>
+                        <p class="text-white mt-2">Dive into JavaScript, the backbone of web development, and
                             learn how to
                             create dynamic websites.</p>
                         <a href="https://medium.com/@hai98/mastering-javascript-a-comprehensive-guide-for-beginners-4cf42eed45fd"
@@ -104,12 +107,14 @@
                     </div>
                 </div>
 
-                <div id="tech-section" class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <!-- Tech Section -->
+                <div id="tech-section"
+                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image2.webp" alt="Coding on a desktop"
                         class="w-full h-40 object-cover pointer-events-none" loading="lazy" />
                     <div class="p-4">
-                        <h2 class="text-lg font-semibold text-black">Understanding Python</h2>
-                        <p class="text-gray-600 mt-2">Learn Python, a versatile programming language, and explore
+                        <h2 class="text-xl font-semibold text-[#308d46]">Understanding Python</h2>
+                        <p class="text-white mt-2">Learn Python, a versatile programming language, and explore
                             its
                             applications in data science and web development.</p>
                         <a href="https://www.python.org/about/gettingstarted/" target="_blank"
@@ -119,12 +124,14 @@
                     </div>
                 </div>
 
-                <div id="tech-section" class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <!-- Tech Section -->
+                <div id="tech-section"
+                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image3.jpg" alt="Writing code on a notebook" loading="lazy"
                         class="w-full h-40 object-cover pointer-events-none" />
                     <div class="p-4">
-                        <h2 class="text-lg font-semibold text-black">The Power of HTML & CSS</h2>
-                        <p class="text-gray-600 mt-2">Explore the fundamentals of web design with HTML and CSS, and
+                        <h2 class="text-xl font-semibold text-[#308d46]">The Power of HTML & CSS</h2>
+                        <p class="text-white mt-2">Explore the fundamentals of web design with HTML and CSS, and
                             create
                             stunning web pages from scratch.</p>
                         <a href="https://medium.com/@rimonppip0/the-power-of-html-css-building-the-foundation-of-the-web-8d2546f78818"
@@ -135,12 +142,14 @@
                     </div>
                 </div>
 
-                <div id="business-section" class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <!-- Business Section -->
+                <div id="business-section"
+                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image4.jpeg" alt="Coding on a tablet" loading="lazy"
                         class="w-full h-40 object-cover pointer-events-none" />
                     <div class="p-4">
-                        <h2 class="text-lg font-semibold text-black">Introduction to Web Development</h2>
-                        <p class="text-gray-600 mt-2">Begin your journey in web development with this comprehensive
+                        <h2 class="text-xl font-semibold text-[#308d46]">Introduction to Web Development</h2>
+                        <p class="text-white mt-2">Begin your journey in web development with this comprehensive
                             guide that
                             covers the basics and beyond.</p>
                         <a href="https://www.geeksforgeeks.org/web-development" target="_blank"
@@ -150,14 +159,15 @@
                     </div>
                 </div>
 
-                <div id="tech-section" class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <!-- Tech Section -->
+                <div id="tech-section"
+                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image5.webp" alt="Collaborative coding session"
                         class="w-full h-40 object-cover pointer-events-none" loading="lazy" />
                     <div class="p-4">
-                        <h2 class="text-lg font-semibold text-black">Collaboration in Coding</h2>
-                        <p class="text-gray-600 mt-2">Discover best practices for collaboration in coding projects
-                            and tools to
-                            enhance teamwork.</p>
+                        <h2 class="text-xl font-semibold text-[#308d46]">Collaboration in Coding</h2>
+                        <p class="text-white mt-2">Discover best practices for collaboration in coding projects and
+                            tools to enhance teamwork.</p>
                         <a href="https://www.developernation.net/blog/how-does-collaborative-coding-work"
                             target="_blank"
                             class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
@@ -166,12 +176,14 @@
                     </div>
                 </div>
 
-                <div id="business-section" class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <!-- Business Section -->
+                <div id="business-section"
+                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image6.webp" alt="Code review session" loading="lazy"
                         class="w-full h-40 object-cover pointer-events-none" />
                     <div class="p-4">
-                        <h2 class="text-lg font-semibold text-black">Effective Code Review Practices</h2>
-                        <p class="text-gray-600 mt-2">Learn how to conduct effective code reviews to improve code
+                        <h2 class="text-xl font-semibold text-[#308d46]">Effective Code Review Practices</h2>
+                        <p class="text-white mt-2">Learn how to conduct effective code reviews to improve code
                             quality and
                             team performance.</p>
                         <a href="https://stackoverflow.blog/2019/09/30/how-to-make-good-code-reviews-better"
@@ -182,12 +194,14 @@
                     </div>
                 </div>
 
-                <div id="business-section" class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <!-- Business Section -->
+                <div id="business-section"
+                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image7.avif" alt="Strategic Business Planning" loading="lazy"
                         class="w-full h-40 object-cover pointer-events-none" />
                     <div class="p-4">
-                        <h2 class="text-lg font-semibold text-black">Maximizing Business Efficiency</h2>
-                        <p class="text-gray-600 mt-2">Learn key strategies to enhance operational efficiency and drive
+                        <h2 class="text-xl font-semibold text-[#308d46]">Maximizing Business Efficiency</h2>
+                        <p class="text-white mt-2">Learn key strategies to enhance operational efficiency and drive
                             growth in your business.</p>
                         <a href="https://www.market-inspector.co.uk/blog/2020/02/maximise-business-efficiency"
                             target="_blank"
@@ -197,12 +211,14 @@
                     </div>
                 </div>
 
-                <div id="tech-section" class="bg-white shadow-md rounded-[5px] overflow-hidden">
+                <!-- Tech Section -->
+                <div id="tech-section"
+                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image8.jpeg" alt="Emerging Technologies" loading="lazy"
                         class="w-full h-40 object-cover pointer-events-none" />
                     <div class="p-4">
-                        <h2 class="text-lg font-semibold text-black">Harnessing Emerging Technologies</h2>
-                        <p class="text-gray-600 mt-2">Stay ahead of the curve by exploring the latest tech trends and
+                        <h2 class="text-xl font-semibold text-[#308d46]">Harnessing Emerging Technologies</h2>
+                        <p class="text-white mt-2">Stay ahead of the curve by exploring the latest tech trends and
                             their impact on the industry.</p>
                         <a href="https://gordontredgold.com/harnessing-emerging-technologies-to-gain-a-strategic-advantage/#:~:text=The%20successful%20harnessing%20of%20emerging,on%20ethical%20and%20responsible%20use."
                             target="_blank"
@@ -217,7 +233,7 @@
             <!-- This Section Is To Say That There Are'nt Anymore News -->
             <div class="flex justify-center items-center mt-10 mb-0">
                 <p class=" px-4 py-1 text-xl rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
-                    No More News</p>
+                    More News Coming Soon</p>
             </div>
         </div>
 
@@ -228,12 +244,15 @@
 
     <div class="flex flex-col justify-center items-center my-5 gap-3">
         <h1 class="text-2xl">Subscribe for More Updates</h1>
-        <form id="subscription-form" class="space-x-1" action="https://api.web3forms.com/submit" method="POST">
+        <form id="subscription-form" class="space-x-1" action="https://api.web3forms.com/submit" method="post">
 
             <input type="hidden" name="access_key" value="1101d744-cf60-4cbf-b87e-e3067d029143">
 
-            <input class="bg-[#308d46] w-52 border-none text-white rounded-[3px] focus:ring-[#308d46] placeholder:text-white" name="email" type="email" placeholder="Enter Your Email" required>
-            <button class="border border-[#308d46] rounded-[3px] p-[7px] text-[#308d46]" type="submit">Subscribe</button>
+            <input
+                class="bg-[#308d46] text-xl w-56 border-none text-white py-3 rounded-[3px] focus:ring-[#308d46] placeholder:text-white"
+                type="email" name="email" placeholder="Enter Your Email" required>
+            <button class="border border-gray-800 rounded-[3px] text-lg p-3 text-[#308d46]"
+                type="submit">Subscribe</button>
         </form>
     </div>
 

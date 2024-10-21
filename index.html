@@ -85,6 +85,7 @@
             </div>
         </div>
 
+        <!-- Articles -->
         <div class="flex justify-between flex-col items-center mb-6">
             <!-- Articles -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
@@ -242,20 +243,23 @@
     <!--  -->
     <!--  -->
 
+    <!-- Subscription Form -->
     <div class="flex flex-col justify-center items-center my-5 gap-3">
         <h1 class="text-2xl">Subscribe for More Updates</h1>
         <form id="subscription-form" class="space-x-1" action="https://api.web3forms.com/submit" method="post">
 
             <input type="hidden" name="access_key" value="1101d744-cf60-4cbf-b87e-e3067d029143">
 
+
             <input
                 class="bg-[#308d46] text-xl w-56 border-none text-white py-3 rounded-[3px] focus:ring-[#308d46] placeholder:text-white"
                 type="email" name="email" placeholder="Enter Your Email" required>
-            <button class="border border-gray-800 rounded-[3px] text-lg p-3 text-[#308d46]"
+            <button class="border border-[#308d46] rounded-[3px] text-lg p-3 text-[#308d46]"
                 type="submit">Subscribe</button>
         </form>
     </div>
 
+    <!-- Modal -->
     <div id="modal" class="fixed inset-0 bg-black opacity-70 flex justify-center items-center h-screen hidden">
         <div class="p-20 bg-black border rounded-lg">
             <h2 class="text-3xl text-white max-sm:text-lg">Thank you for subscribing</h2>

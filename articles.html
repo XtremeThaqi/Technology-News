@@ -75,9 +75,12 @@
         <h1 class="ml-8 mb-5 text-4xl font-bold text-white max-sm:text-3xl max-sm:mb-2">Latest Articles</h1>
         <div class="flex flex-wrap justify-center">
             <!-- Articles Sections -->
-            <div class="w-full xl:w-2/3 px-4 space-y-5 mb-5 border-l-2 border-r-2 border-gray-800 transition-all duration-300">
+            <div
+                class="w-full xl:w-2/3 px-4 space-y-5 mb-5 border-l-2 border-r-2 border-gray-800 transition-all duration-300">
+
                 <!-- Article Card 1 -->
-                <div class="px-4 pt-2 pb-5 border-b-2 border-gray-800 flex max-sm:flex-col hover:border-b-[#308d46] md:max-h-[200px] transition-all duration-300">
+                <div
+                    class="px-4 pt-2 pb-5 border-b-2 border-gray-800 flex max-sm:flex-col hover:border-b-[#308d46] md:max-h-[200px] transition-all duration-300">
 
                     <div class="w-1/4 max-sm:w-full max-sm:h-[150px] max-sm:mb-2">
                         <img src="./images/articles-images/image1.avif" alt="Top Innovations in Technology for 2024"
@@ -104,8 +107,8 @@
                                 </div>
                                 <p
                                     class="bg-[#308d46] text-white h-full w-full flex justify-center items-center translate-x-[17px] group-hover:translate-x-0 duration-500">
-                                    Explore
-                                    More</p>
+                                    Explore More
+                                </p>
                             </button>
                         </a>
 
@@ -377,7 +380,8 @@
             </div>
 
             <!-- Sidebar Section -->
-            <div class="w-full h-full sticky top-16 lg:w-1/4 max-w-full flex-auto px-4 border-r-2 border-gray-800 max-xl:mt-0 max-xl:px-0 max-sm:mt-10 max-[1280px]:border-r-0">
+            <div
+                class="w-full h-full sticky top-16 lg:w-1/4 max-w-full flex-auto px-4 border-r-2 border-gray-800 max-xl:mt-0 max-xl:px-0 max-sm:mt-10 max-[1280px]:border-r-0">
                 <div class="rounded-lg p-4 mb-5">
 
                     <!-- Most Popular Section -->
@@ -495,7 +499,7 @@
                             </div>
                         </section>
 
-                    </ul>
+                    </main>
 
                 </div>
 
@@ -518,15 +522,66 @@
     <!--  -->
 
     <!-- Footer -->
-    <footer class="w-full bg-gray-950 text-white py-4 border-t-2 border-t-gray-800">
-        <div class="container mx-auto text-center">
+    <footer class="w-full bg-gray-950 text-white px-10 py-4 border-t-2 border-t-gray-800">
+        <div class="container mx-auto flex justify-between items-center max-sm:flex-col">
             <p>&copy; 2024 <span class="text-[#308d46]">Tech.</span> All Rights Reserved.</p>
-            <div class="mt-2">
-                <a href="#" class="text-[#308d46] hover:text-[#29783b] mx-2">Facebook</a>
-                <a href="#" class="text-[#308d46] hover:text-[#29783b] mx-2">Twitter</a>
-                <a href="#" class="text-[#308d46] hover:text-[#29783b] mx-2">Instagram</a>
-                <a href="#" class="text-[#308d46] hover:text-[#29783b] mx-2">LinkedIn</a>
+
+            <!-- Social Media -->
+            <div class="mt-2 flex justify-center items-center gap-5">
+                <!-- Facebook Icon -->
+                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
+
+                    <a href="#">
+                        <i
+                            class="fa-brands fa-facebook-f text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
+                    </a>
+
+                    <div
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
+                        Facebook
+                    </div>
+                </div>
+
+                <!-- Twitter Icon -->
+                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
+
+                    <a href="#">
+                        <i
+                            class="fa-brands fa-twitter text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
+                    </a>
+
+                    <div
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
+                        Twitter
+                    </div>
+                </div>
+
+                <!-- LinkedIn Icon -->
+                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
+                    <a href="#">
+                        <i
+                            class="fa-brands fa-linkedin-in text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
+                    </a>
+                    <div
+                        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 transform scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
+                        LinkedIn
+                    </div>
+                </div>
+
+                <!-- Email Icon -->
+                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
+                    <a href="mailto:erblinthaqi40@gmail.com">
+                        <i
+                            class="fa-regular fa-envelope text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
+                    </a>
+
+                    <div
+                        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 transform scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
+                        Email
+                    </div>
+                </div>
             </div>
+
         </div>
     </footer>
 

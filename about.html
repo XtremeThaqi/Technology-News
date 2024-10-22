@@ -35,7 +35,7 @@
 
 <body class="bg-black text-white">
 
-    <nav class="fixed w-full h-18 flex justify-around items-center py-4 bg-black mx-auto border-b">
+    <nav class="fixed text-white w-full h-18 flex justify-around items-center py-4 bg-black mx-auto border-b">
         <!-- Logo -->
         <h2 class="cursor-default text-4xl max-md:text-3xl cursor-default points-events-none">Tech<span
                 class="text-[#308d46]">.</span></h2>
@@ -68,122 +68,71 @@
         </div>
     </nav>
 
-    <header class="text-[#308d46] py-8 pt-28">
-        <h1 class="text-center text-4xl font-bold max-sm:text-3xl">Welcome to Our Blog!</h1>
-    </header>
+    <div class="container mx-auto p-8 py-28 pb-12">
 
-    <main class="container mx-auto px-4 py-8 text-black">
-
-        <!-- Mission and Vision Section -->
-        <div class="flex justify-between gap-5 max-sm:flex-col mb-10">
-
-            <section class="bg-white rounded-lg p-5 w-auto">
-                <h2 class="text-3xl font-semibold mb-4 text-[#308d46]">Our Mission</h2>
-                <p class="mb-2 text-xl max-sm:text-sm">At Tech, our mission is to inspire and educate our readers
-                    through insightful content and engaging discussions. We aim to bridge the gap between technology and
-                    human experience, offering accessible information for both enthusiasts and professionals alike.</p>
-            </section>
-
-            <section class="bg-white rounded-lg p-5 w-auto">
-                <h2 class="text-3xl font-semibold text-[#308d46] mb-4">Our Vision</h2>
-                <p class="mb-2 text-xl max-sm:text-sm">We envision a platform where curiosity thrives, and ideas come to
-                    life. Tech aims to be more than just a publication—we are a hub for discovery, exploration, and
-                    connection.</p>
-            </section>
-
-        </div>
-
-        <!-- Team Section -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-semibold mb-4 text-white">Meet the Team</h2>
-
-            <div class="bg-white rounded-lg p-5 mb-6">
-                <h3 class="text-2xl font-bold mb-1 text-[#308d46]">Erblin Thaqi</h3>
-                <p class="text-gray-600"><strong>Role:</strong> Founder</p>
-                <p>With a passion for writing and a background in journalism, <strong
-                        class="text-[#308d46]">Erblin</strong>
-                    leads the team with a vision to share stories that matter.</p>
-            </div>
-
-            <!-- More Contributors Section Hidden Until Needed -->
-            <!--
-            <div class="bg-white rounded-lg p-6 mb-6">
-                <h3 class="text-2xl font-bold">[Contributor Name]</h3>
-                <p class="text-gray-600"><strong>Role:</strong> [e.g., Content Creator, Social Media Manager]</p>
-                <p>[Brief bio, e.g., "As a creative storyteller, [Contributor Name] crafts engaging articles and manages
-                    our online presence to connect with our audience."]</p>
-            </div>
-
-            <div class="bg-white rounded-lg p-6 mb-6">
-                <h3 class="text-2xl font-bold">[Contributor Name]</h3>
-                <p class="text-gray-600"><strong>Role:</strong> [e.g., Researcher, Contributor]</p>
-                <p>[Brief bio, e.g., "Dedicated to thorough research and fact-checking, [Contributor Name] ensures our
-                    content is accurate and informative."]</p>
-            </div> -->
-
+        <section class="bg-black border-2 border-gray-800 p-6 rounded-lg shadow-md mb-8 hover:border-[#308d46] transition-all duration-300">
+            <h2 class="text-2xl xl:text-3xl font-semibold mb-4 text-center text-[#308d46]">Welcome to Our Blog!</h2>
+            <p class="mb-4 xl:text-xl">
+                At <strong>Tech</strong>, we’re dedicated to creating a space where curiosity meets insight. Our
+                mission is to share knowledge, inspire creativity, and foster a community of passionate individuals who
+                love to explore new ideas. We believe that every story matters and that sharing experiences can spark
+                meaningful conversations. In our vibrant community, we encourage collaboration and innovation, inviting thinkers, creators, and dreamers to come together. Through workshops, seminars, and events, we provide opportunities for learning and growth, empowering individuals to push boundaries and challenge the status quo. We embrace diversity of thought and recognize that different perspectives enrich our understanding and fuel progress.
+            </p>
         </section>
 
-        <div class="flex justify-between max-sm:flex-col">
-            <!-- Get in Touch Section -->
-            <section class="bg-white rounded-lg p-5 h-auto">
-                <h2 class="text-3xl font-semibold mb-4 text-[#308d46]">Get in Touch</h2>
-                <p class="mb-2 text-xl max-sm:text-sm">We’d love to hear from you! Whether you have questions, feedback,
-                    or
-                    just want to say hello, feel free to reach out:</p>
-
-                <ul class="list-disc list-inside mb-4 mt-2">
-                    <li><strong>Email:</strong>
-                        <a href="mailto:your-email@example.com" class="text-blue-600 hover:underline">
-                            tech@gmail.com
-                        </a>
-                    </li>
-
-                    <li><strong>Contact Form:</strong>
-                        <button class="text-blue-600 hover:underline">
-                            Click here
-                        </button>
-                    </li>
-                </ul>
-            </section>
-
-            <!-- Contact Form -->
-            <div class="p-8 rounded-lg flex flex-col justify-center items-center">
-
-                <form action="https://api.web3forms.com/submit" method="POST"
-                    class="border p-5 w-[400px] rounded-lg bg-white">
-                    <h2 class="text-3xl font-bold mb-6 text-[#308d46] text-center">Contact Us</h2>
-
-                    <input type="hidden" name="access_key" value="1101d744-cf60-4cbf-b87e-e3067d029143">
-
-                    <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" id="name" name="name" required
-                            class="w-full border border-gray-300 rounded-md focus:ring-[#308d46] focus:border-[#308d46] p-2"
-                            placeholder="Your Name">
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" name="email" required
-                            class="mt-1 block w-full border border-gray-300 rounded-md focus:ring-[#308d46] focus:border-[#308d46] p-2"
-                            placeholder="Your Email">
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                        <textarea id="message" name="message" required
-                            class="mt-1 block w-full border border-gray-300 rounded-md focus:ring-[#308d46] focus:border-[#308d46] p-2"
-                            rows="4" placeholder="Your Message"></textarea>
-                    </div>
-
-                    <button type="submit"
-                        class="w-full bg-[#308d46] text-white font-bold py-2 rounded hover:bg-[#29783b] transition-all duration-300">Send
-                        Message</button>
-                </form>
+        <section class="bg-gray-800 p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">Our Contributors</h2>
+            <div class="space-y-4">
+                <div class="border border-gray-700 rounded-lg p-4">
+                    <h3 class="font-semibold text-white">[Contributor Name 1]</h3>
+                    <p class="text-sm">Role: [Role Title]</p>
+                    <p>[Name] explores the intersection of innovation and everyday life.</p>
+                </div>
+                <div class="border border-gray-700 rounded-lg p-4">
+                    <h3 class="font-semibold text-white">[Contributor Name 2]</h3>
+                    <p class="text-sm">Role: [Role Title]</p>
+                    <p>[Name] writes about sustainability and the importance of mindful living.</p>
+                </div>
+                <div class="border border-gray-700 rounded-lg p-4">
+                    <h3 class="font-semibold text-white">[Contributor Name 3]</h3>
+                    <p class="text-sm">Role: [Role Title]</p>
+                    <p>[Name] loves to delve into culture and arts, bringing diverse perspectives to our readers.</p>
+                </div>
             </div>
-        </div>
+        </section>
 
-    </main>
+        <section class="bg-gray-800 p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">Get in Touch</h2>
+            <p class="mb-4">We’d love to hear from you! Whether you have questions, feedback, or just want to say hello,
+                feel free to reach out.</p>
+            <h3 class="font-semibold text-white">Contact Information</h3>
+            <ul class="list-disc list-inside mb-4 text-gray-300">
+                <li>Email: <a href="mailto:your-email@example.com"
+                        class="text-blue-400 hover:underline">your-email@example.com</a></li>
+                <li>Social Media: <a href="#" class="text-blue-400 hover:underline">Facebook</a>, <a href="#"
+                        class="text-blue-400 hover:underline">Twitter</a></li>
+            </ul>
+            <form class="bg-gray-700 p-4 rounded-lg shadow-inner">
+                <h4 class="font-semibold mb-2 text-white">Contact Form</h4>
+                <div class="mb-4">
+                    <label class="block mb-1 text-gray-300" for="name">Name:</label>
+                    <input type="text" id="name"
+                        class="border border-gray-600 bg-gray-800 text-gray-300 p-2 rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-1 text-gray-300" for="email">Email:</label>
+                    <input type="email" id="email"
+                        class="border border-gray-600 bg-gray-800 text-gray-300 p-2 rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-1 text-gray-300" for="message">Message:</label>
+                    <textarea id="message" class="border border-gray-600 bg-gray-800 text-gray-300 p-2 rounded w-full"
+                        rows="4" required></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white p-2 rounded hover:bg-blue-500">Send Message</button>
+            </form>
+        </section>
+    </div>
 
     <footer class="w-full bg-gray-950 text-white py-4">
         <div class="container mx-auto text-center">

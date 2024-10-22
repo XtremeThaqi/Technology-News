@@ -4,6 +4,7 @@ openMenu.addEventListener("click", () => {
   const mobileMenu = document.querySelector(".mobile-menu");
   mobileMenu.classList.toggle("hidden"); // toggle the class hidden or not
 });
+// End
 
 // Buttons
 const allBtn = document.getElementById("all");
@@ -14,23 +15,24 @@ const businessBtn = document.getElementById("business");
 const techSection = document.querySelectorAll("#tech-section");
 const businessSection = document.querySelectorAll("#business-section");
 
-// Show All Section
+// Show All Sections
 allBtn.addEventListener('click', () => {
   techSection.forEach(e => e.style.display = 'block');
   businessSection.forEach(e => e.style.display = 'block');
 });
 
-// Show Tech Section
+// Show Tech Sections
 techBtn.addEventListener('click', () => {
   techSection.forEach(e => e.style.display = 'block');
   businessSection.forEach(e => e.style.display = 'none');
 });
 
-// Show Business Section
+// Show Business Sections
 businessBtn.addEventListener('click', () => {
   techSection.forEach(e => e.style.display = 'none');
   businessSection.forEach(e => e.style.display = 'block');
 });
+// End
 
 // Subscribe Form Event
 const modal = document.getElementById('modal');
@@ -40,10 +42,11 @@ form.addEventListener('submit', (e) => {
   e.preventDefault(); // prevent from reloading
   modal.style.display = "flex"; // show modal
   form.reset(); // clear the form
-
-  // when 3sec pass modal will wanish
-  setTimeout(() => {
-    modal.style.display = 'none';
-  }, 3000);
-
 });
+
+// Close the Modal
+const closeModal = document.getElementById('closeModal');
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none'
+})
+// End

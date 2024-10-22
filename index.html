@@ -42,13 +42,13 @@
         <!-- Desktop Menu -->
         <ul class="flex items-center gap-10 max-sm:hidden">
             <li class='hover:underline text-[20px] text-[#308d46]'>
-                <a href="/index.html">Home</a>
+                <a href="./index.html">Home</a>
             </li>
             <li class='hover:underline text-[20px]'>
-                <a href="/articles.html">Articles</a>
+                <a href="./articles.html">Articles</a>
             </li>
             <li class='hover:underline text-[20px]'>
-                <a href="/about.html">About Us</a>
+                <a href="./about.html">About Us</a>
             </li>
         </ul>
 
@@ -77,32 +77,32 @@
             <h2 class="text-4xl font-bold">Categories:</h2>
             <div class="flex gap-3">
                 <button id="all"
-                    class="bg-[#308d46] px-3 py-1.5 rounded-[5px] hover:bg-[#29783b] transition-all duration-300">All</button>
+                    class="bg-[#308d46] px-3 py-1.5 rounded-[5px] focus:bg-[#29783b] transition-all duration-300">All</button>
                 <button id="tech"
-                    class="bg-[#308d46] px-3 py-1.5 rounded-[5px] hover:bg-[#29783b] transition-all duration-300">Tech</button>
+                    class="bg-[#308d46] px-3 py-1.5 rounded-[5px] focus:bg-[#29783b] transition-all duration-300">Tech</button>
                 <button id="business"
-                    class="bg-[#308d46] px-3 py-1.5 rounded-[5px] hover:bg-[#29783b] transition-all duration-300">Business</button>
+                    class="bg-[#308d46] px-3 py-1.5 rounded-[5px] focus:bg-[#29783b] transition-all duration-300">Business</button>
             </div>
         </div>
 
         <!-- Articles -->
         <div class="flex justify-between flex-col items-center mb-6">
             <!-- Articles -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div class="p-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
 
                 <!-- Tech Section -->
                 <div id="tech-section"
-                    class="rounded-[5px] rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
+                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image1.jpeg" alt="Coding on a laptop"
                         class="w-full h-40 object-cover pointer-events-none" loading="lazy" />
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#308d46]">Mastering JavaScript</h2>
-                        <p class="text-white mt-2">Dive into JavaScript, the backbone of web development, and
+                        <p class="text-white mt-2 mb-12">Dive into JavaScript, the backbone of web development, and
                             learn how to
                             create dynamic websites.</p>
                         <a href="https://medium.com/@hai98/mastering-javascript-a-comprehensive-guide-for-beginners-4cf42eed45fd"
                             target="_blank"
-                            class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
                             Read More
                         </a>
                     </div>
@@ -110,16 +110,16 @@
 
                 <!-- Tech Section -->
                 <div id="tech-section"
-                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
+                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image2.webp" alt="Coding on a desktop"
                         class="w-full h-40 object-cover pointer-events-none" loading="lazy" />
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#308d46]">Understanding Python</h2>
-                        <p class="text-white mt-2">Learn Python, a versatile programming language, and explore
+                        <p class="text-white mt-2 mb-12">Learn Python, a versatile programming language, and explore
                             its
                             applications in data science and web development.</p>
                         <a href="https://www.python.org/about/gettingstarted/" target="_blank"
-                            class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
                             Read More
                         </a>
                     </div>
@@ -127,17 +127,17 @@
 
                 <!-- Tech Section -->
                 <div id="tech-section"
-                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
+                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image3.jpg" alt="Writing code on a notebook" loading="lazy"
                         class="w-full h-40 object-cover pointer-events-none" />
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#308d46]">The Power of HTML & CSS</h2>
-                        <p class="text-white mt-2">Explore the fundamentals of web design with HTML and CSS, and
+                        <p class="text-white mt-2 mb-12">Explore the fundamentals of web design with HTML and CSS, and
                             create
                             stunning web pages from scratch.</p>
                         <a href="https://medium.com/@rimonppip0/the-power-of-html-css-building-the-foundation-of-the-web-8d2546f78818"
                             target="_blank"
-                            class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
                             Read More
                         </a>
                     </div>
@@ -145,16 +145,16 @@
 
                 <!-- Business Section -->
                 <div id="business-section"
-                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
+                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image4.jpeg" alt="Coding on a tablet" loading="lazy"
                         class="w-full h-40 object-cover pointer-events-none" />
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#308d46]">Introduction to Web Development</h2>
-                        <p class="text-white mt-2">Begin your journey in web development with this comprehensive
+                        <p class="text-white mt-2 mb-12">Begin your journey in web development with this comprehensive
                             guide that
                             covers the basics and beyond.</p>
                         <a href="https://www.geeksforgeeks.org/web-development" target="_blank"
-                            class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
                             Read More
                         </a>
                     </div>
@@ -162,16 +162,17 @@
 
                 <!-- Tech Section -->
                 <div id="tech-section"
-                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
+                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image5.webp" alt="Collaborative coding session"
                         class="w-full h-40 object-cover pointer-events-none" loading="lazy" />
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#308d46]">Collaboration in Coding</h2>
-                        <p class="text-white mt-2">Discover best practices for collaboration in coding projects and
+                        <p class="text-white mt-2 mb-12">Discover best practices for collaboration in coding projects
+                            and
                             tools to enhance teamwork.</p>
                         <a href="https://www.developernation.net/blog/how-does-collaborative-coding-work"
                             target="_blank"
-                            class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
                             Read More
                         </a>
                     </div>
@@ -179,17 +180,17 @@
 
                 <!-- Business Section -->
                 <div id="business-section"
-                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
+                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image6.webp" alt="Code review session" loading="lazy"
                         class="w-full h-40 object-cover pointer-events-none" />
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#308d46]">Effective Code Review Practices</h2>
-                        <p class="text-white mt-2">Learn how to conduct effective code reviews to improve code
+                        <p class="text-white mt-2 mb-12">Learn how to conduct effective code reviews to improve code
                             quality and
                             team performance.</p>
                         <a href="https://stackoverflow.blog/2019/09/30/how-to-make-good-code-reviews-better"
                             target="_blank"
-                            class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
                             Read More
                         </a>
                     </div>
@@ -197,16 +198,17 @@
 
                 <!-- Business Section -->
                 <div id="business-section"
-                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
+                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image7.avif" alt="Strategic Business Planning" loading="lazy"
                         class="w-full h-40 object-cover pointer-events-none" />
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#308d46]">Maximizing Business Efficiency</h2>
-                        <p class="text-white mt-2">Learn key strategies to enhance operational efficiency and drive
+                        <p class="text-white mt-2 mb-12">Learn key strategies to enhance operational efficiency and
+                            drive
                             growth in your business.</p>
                         <a href="https://www.market-inspector.co.uk/blog/2020/02/maximise-business-efficiency"
                             target="_blank"
-                            class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
                             Read More
                         </a>
                     </div>
@@ -214,16 +216,16 @@
 
                 <!-- Tech Section -->
                 <div id="tech-section"
-                    class="rounded-b-[3px] border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
+                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
                     <img src="./images/home-images/image8.jpeg" alt="Emerging Technologies" loading="lazy"
                         class="w-full h-40 object-cover pointer-events-none" />
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#308d46]">Harnessing Emerging Technologies</h2>
-                        <p class="text-white mt-2">Stay ahead of the curve by exploring the latest tech trends and
+                        <p class="text-white mt-2 mb-12">Stay ahead of the curve by exploring the latest tech trends and
                             their impact on the industry.</p>
                         <a href="https://gordontredgold.com/harnessing-emerging-technologies-to-gain-a-strategic-advantage/#:~:text=The%20successful%20harnessing%20of%20emerging,on%20ethical%20and%20responsible%20use."
                             target="_blank"
-                            class="bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
+                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
                             Read More
                         </a>
                     </div>
@@ -232,7 +234,7 @@
             </div>
 
             <!-- This Section Is To Say That There Are'nt Anymore News -->
-            <div class="flex justify-center items-center mt-10 mb-0">
+            <div class="flex justify-center items-center mt-10 mb-0 w-full">
                 <p class=" px-4 py-1 text-xl rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
                     More News Coming Soon</p>
             </div>
@@ -245,25 +247,33 @@
 
     <!-- Subscription Form -->
     <div class="flex flex-col justify-center items-center my-5 gap-3">
-        <h1 class="text-2xl">Subscribe for More Updates</h1>
-        <form id="subscription-form" class="space-x-1" action="https://api.web3forms.com/submit" method="post">
+        <h1 class="text-2xl">Dont Miss Any Updates!</h1>
+        <form id="subscription-form" action="https://api.web3forms.com/submit" method="post">
 
             <input type="hidden" name="access_key" value="1101d744-cf60-4cbf-b87e-e3067d029143">
 
+            <div class="flex items-center justify-center gap-2">
+                <input
+                    class="bg-[#308d46] text-xl w-[20rem] border-none text-white py-3 rounded-[3px] focus:ring-[#308d46] placeholder:text-white max-sm:w-52 max-sm:py-2.5 max-sm:text-[15px]"
+                    type="email" name="email" placeholder="Enter Your Email" required>
 
-            <input
-                class="bg-[#308d46] text-xl w-56 border-none text-white py-3 rounded-[3px] focus:ring-[#308d46] placeholder:text-white"
-                type="email" name="email" placeholder="Enter Your Email" required>
-            <button class="border border-[#308d46] rounded-[3px] text-lg p-3 text-[#308d46]"
-                type="submit">Subscribe</button>
+                <button
+                    class="border border-[#308d46] rounded-[3px] text-lg p-3 text-[#308d46] max-sm:p-2.5 max-sm:text-[1rem]"
+                    type="submit">Subscribe</button>
+            </div>
         </form>
-    </div>
 
-    <!-- Modal -->
-    <div id="modal" class="fixed inset-0 bg-black opacity-70 flex justify-center items-center h-screen hidden">
-        <div class="p-20 bg-black border rounded-lg">
-            <h2 class="text-3xl text-white max-sm:text-lg">Thank you for subscribing</h2>
+        <!-- Thank you modal -->
+        <div id="modal" class="hidden fixed inset-0 bg-black opacity-85 flex justify-center items-center h-screen">
+            <div class="border rounded-lg flex flex-col items-center py-10 px-5 w-auto">
+                <i class="fa-regular fa-circle-check text-8xl text-[#308d46]"></i>
+                <h2 class="text-3xl text-white max-sm:text-2xl my-5">Subscription Confirmed!</h2>
+                <p class="text-2xl max-md:text-xl max-sm:text-[16px] text-center">Thank you for subscribing! Your
+                    subscription is now active, and we’re excited to have you on board.</p>
+                <button id="closeModal" class="bg-[#308d46] text-lg px-8 py-1.5 rounded-[3px] mt-5">Close</button>
+            </div>
         </div>
+
     </div>
 
     <!--  -->

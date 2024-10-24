@@ -1,10 +1,12 @@
-// Mobile Menu
+// Mobile Menu for all pages
 const openMenu = document.getElementById("openMenu");
 openMenu.addEventListener("click", () => {
   const mobileMenu = document.querySelector(".mobile-menu");
   mobileMenu.classList.toggle("hidden"); // toggle the class hidden or not
 });
-// End
+
+// //
+// // 
 
 // Buttons
 const allBtn = document.getElementById("all");
@@ -35,18 +37,17 @@ businessBtn.addEventListener('click', () => {
 // End
 
 // Subscribe Form Event
-const modal = document.getElementById('modal');
+const homeModal = document.getElementById('modal');
 const form = document.getElementById('subscription-form');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault(); // prevent from reloading
-  modal.style.display = "flex"; // show modal
+  homeModal.style.display = "flex"; // show modal
   form.reset(); // clear the form
 });
 
 // Close the Modal
 const closeModal = document.getElementById('closeModal');
 closeModal.addEventListener('click', () => {
-  modal.style.display = 'none'
+  homeModal.style.display = 'none'
 })
-// End

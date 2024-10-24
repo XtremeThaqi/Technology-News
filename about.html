@@ -12,7 +12,7 @@
         html {
             transition: all 0.3s ease-in-out;
             scrollbar-width: thin;
-            scrollbar-color: #fff #000;
+            scrollbar-color: #308d46 #000;
         }
 
         /* Chrome, Edge, and Safari */
@@ -33,9 +33,9 @@
     </style>
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-black text-gray-300">
 
-    <nav class="fixed text-white w-full h-18 flex justify-around items-center py-4 bg-black mx-auto border-b">
+    <nav class="z-50 fixed text-white w-full h-18 flex justify-around items-center py-4 bg-black mx-auto border-b">
         <!-- Logo -->
         <h2 class="cursor-default text-4xl max-md:text-3xl cursor-default points-events-none">Tech<span
                 class="text-[#308d46]">.</span></h2>
@@ -70,68 +70,100 @@
 
     <div class="container mx-auto p-8 py-28 pb-12">
 
-        <section class="bg-black border-2 border-gray-800 p-6 rounded-lg shadow-md mb-8 hover:border-[#308d46] transition-all duration-300">
-            <h2 class="text-2xl xl:text-3xl font-semibold mb-4 text-center text-[#308d46]">Welcome to Our Blog!</h2>
-            <p class="mb-4 xl:text-xl">
+        <section class="bg-black py-5 rounded-lg mb-14 space-y-8 hover:scale-95 transition-all duration-300">
+            <h2 class="text-3xl bg-black z-10 xl:text-4xl font-semibold -mb-12 text-center text-white tracking-tight">
+                Welcome to Our Blog!</h2>
+            <p
+                class="xl:text-xl border-2 border-gray-800 rounded-lg p-10 text-gray-300 hover:border-[#308d46] transition-all duration-300">
                 At <strong>Tech</strong>, we’re dedicated to creating a space where curiosity meets insight. Our
                 mission is to share knowledge, inspire creativity, and foster a community of passionate individuals who
                 love to explore new ideas. We believe that every story matters and that sharing experiences can spark
-                meaningful conversations. In our vibrant community, we encourage collaboration and innovation, inviting thinkers, creators, and dreamers to come together. Through workshops, seminars, and events, we provide opportunities for learning and growth, empowering individuals to push boundaries and challenge the status quo. We embrace diversity of thought and recognize that different perspectives enrich our understanding and fuel progress.
+                meaningful conversations. In our vibrant community, we encourage collaboration and innovation, inviting
+                thinkers, creators, and dreamers to come together. Through workshops, seminars, and events, we provide
+                opportunities for learning and growth, empowering individuals to push boundaries and challenge the
+                status quo. We embrace diversity of thought and recognize that different perspectives enrich our
+                understanding and fuel progress.
             </p>
         </section>
 
-        <section class="bg-gray-800 p-6 rounded-lg shadow-md mb-8">
-            <h2 class="text-2xl font-semibold mb-4 text-white">Our Contributors</h2>
-            <div class="space-y-4">
-                <div class="border border-gray-700 rounded-lg p-4">
-                    <h3 class="font-semibold text-white">[Contributor Name 1]</h3>
-                    <p class="text-sm">Role: [Role Title]</p>
-                    <p>[Name] explores the intersection of innovation and everyday life.</p>
+        <section class="bg-black rounded-lg mb-10">
+            <h2 class="text-3xl bg-black xl:text-4xl font-semibold mb-10 text-center text-white tracking-tight">Our
+                Contributors</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div
+                    class="max-w-[700px] border-2 border-gray-800 rounded-lg px-4 py-2 hover:border-[#308d46] hover:scale-95 hover:skew-x-[3deg] transition-all duration-300">
+                    <div class="rounded-lg p-4">
+                        <h3 class="font-bold text-white text-2xl tracking-tight mb-2">Erblin Thaqi</h3>
+                        <p class="text-md xl:text-lg mb-2">Role: <strong>Web Developer</strong></p>
+                        <p class="leading-7 text-md xl:text-lg tracking-tight"><strong>Erblin</strong> is passionate about web development and enjoys
+                            creating content on modern web technologies like Next.js, React, and Tailwind CSS. In his
+                            articles, he breaks down complex topics into easy-to-understand guides, focusing on
+                            front-end development.</p>
+                    </div>
                 </div>
-                <div class="border border-gray-700 rounded-lg p-4">
-                    <h3 class="font-semibold text-white">[Contributor Name 2]</h3>
-                    <p class="text-sm">Role: [Role Title]</p>
-                    <p>[Name] writes about sustainability and the importance of mindful living.</p>
-                </div>
-                <div class="border border-gray-700 rounded-lg p-4">
-                    <h3 class="font-semibold text-white">[Contributor Name 3]</h3>
-                    <p class="text-sm">Role: [Role Title]</p>
-                    <p>[Name] loves to delve into culture and arts, bringing diverse perspectives to our readers.</p>
+
+                <div
+                    class="max-w-[700px] border-2 border-gray-800 rounded-lg p-4 hover:border-[#308d46] hover:scale-95 hover:skew-x-[-3deg] transition-all duration-300">
+                    <h2 class="font-bold text-white text-3xl tracking-tight text-center mb-2">Note:</h2>
+                    <div class="rounded-lg px-4 py-2 space-y-5">
+                        <h3 class="font-bold text-gray-300 text-xl xl:text-2xl tracking-tight mb-2">"As this project
+                            continues to
+                            evolve, there will be room for collaboration with developers, designers, and writers who
+                            share the same passion for crafting innovative, user-focused web experiences."
+                        </h3>
+                        <p class="text-lg xl:text-xl">- Erblin Thaqi</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-gray-800 p-6 rounded-lg shadow-md mb-8">
-            <h2 class="text-2xl font-semibold mb-4 text-white">Get in Touch</h2>
-            <p class="mb-4">We’d love to hear from you! Whether you have questions, feedback, or just want to say hello,
-                feel free to reach out.</p>
-            <h3 class="font-semibold text-white">Contact Information</h3>
-            <ul class="list-disc list-inside mb-4 text-gray-300">
-                <li>Email: <a href="mailto:your-email@example.com"
-                        class="text-blue-400 hover:underline">your-email@example.com</a></li>
-                <li>Social Media: <a href="#" class="text-blue-400 hover:underline">Facebook</a>, <a href="#"
-                        class="text-blue-400 hover:underline">Twitter</a></li>
-            </ul>
-            <form class="bg-gray-700 p-4 rounded-lg shadow-inner">
-                <h4 class="font-semibold mb-2 text-white">Contact Form</h4>
-                <div class="mb-4">
-                    <label class="block mb-1 text-gray-300" for="name">Name:</label>
-                    <input type="text" id="name"
-                        class="border border-gray-600 bg-gray-800 text-gray-300 p-2 rounded w-full" required>
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-1 text-gray-300" for="email">Email:</label>
-                    <input type="email" id="email"
-                        class="border border-gray-600 bg-gray-800 text-gray-300 p-2 rounded w-full" required>
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-1 text-gray-300" for="message">Message:</label>
-                    <textarea id="message" class="border border-gray-600 bg-gray-800 text-gray-300 p-2 rounded w-full"
-                        rows="4" required></textarea>
-                </div>
-                <button type="submit" class="bg-blue-600 text-white p-2 rounded hover:bg-blue-500">Send Message</button>
-            </form>
+        <section
+            class="bg-black border-t-2 border-t-gray-800 border-b-2 border-b-gray-800 hover:border-[#308d46] transition-all duration-300">
+            <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-white">Contact Us</h2>
+                <p class="mb-8 lg:mb-12 font-light text-center text-gray-300 sm:text-xl">Got a question about our latest
+                    posts? Want to share your thoughts or suggest a topic? We’d love to hear from you. Let’s get in touch!
+                </p>
+
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5 px-5 max-sm:px-0">
+
+                    <input type="hidden" name="access_key" value="1101d744-cf60-4cbf-b87e-e3067d029143">
+
+                    <div>
+
+                        <label for="name" class="block mb-2 text-xl font-medium text-white">Your Full
+                            Name</label>
+                        <input type="text" name="name" id="name"
+                            class="text-lg bg-black border border-[#308d46] text-gray-300 text-md rounded-lg block w-full py-3 p-3.5 focus:ring-[#308d46] focus:border-[#308d46] max-sm:py-2.5 max-sm:text-[15px]"
+                            placeholder="Full name" required>
+                    </div>
+
+                    <div>
+
+                        <label for="email" class="block mb-2 text-xl font-medium text-white">Your Email</label>
+                        <input type="email" name="email" id="email"
+                            class="text-lg bg-black border border-[#308d46] text-gray-300 text-md rounded-lg block w-full py-3 p-3.5 focus:ring-[#308d46] focus:border-[#308d46] max-sm:py-2.5 max-sm:text-[15px]"
+                            placeholder="name@gmail.com" required>
+                    </div>
+
+                    <div>
+
+                        <label for="message" class="block mb-2 text-xl font-medium text-white">Your Message</label>
+                        <textarea id="message" name="message" rows="6"
+                            class="text-lg bg-black border border-[#308d46] text-gray-300 text-md rounded-lg block w-full p-3.5 focus:ring-[#308d46] focus:border-[#308d46] max-sm:rows-3"
+                            placeholder="Type your feedback or question here" required></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="py-2.5 text-lg w-full font-medium text-center text-[#308d46] rounded-lg border-2 border-[#308d46] hover:text-white hover:bg-[#29783b] transition-all duration-300">Send
+                        message
+                    </button>
+
+                </form>
+            </div>
+
         </section>
+
     </div>
 
     <footer class="w-full bg-gray-950 text-white py-4">
@@ -146,7 +178,8 @@
         </div>
     </footer>
 
-    <script src="./index.js"></script>
+    <script defer src="./javascipt/index.js"></script>
+    <script defer src="./javascipt/about.js"></script>
 </body>
 
 </html>

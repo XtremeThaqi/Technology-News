@@ -1,49 +1,50 @@
-const contactForm = document.getElementById("contactForm");
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  // Get the values from the form
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
-
-  // Get the error message elements
-  const errorMessageName = document.getElementById("errorMessageName");
-  const errorMessageEmail = document.getElementById("errorMessageEmail");
-  const errorMessageMessage = document.getElementById("errorMessageMessage");
-
-  if (name === "") {
-    errorMessageName.classList.remove("hidden");
-  } else {
-    errorMessageName.classList.add("hidden");
-  }
-
-  if (email === "") {
-    errorMessageEmail.classList.remove("hidden");
-  } else {
-    errorMessageEmail.classList.add("hidden");
-  }
-
-  if (message === "") {
-    errorMessageMessage.classList.remove("hidden");
-  } else {
-    errorMessageMessage.classList.add("hidden");
-  }
-
-  if (name === "" || email === "" || message === "") {
-    return;
-  } else {
-    // Show Success Message
-    const successMessage = document.getElementById("successMessage");
-    successMessage.classList.remove("hidden");
-  }
-
-  // Hide Success Message
-  const closeModal = document.getElementById("closeModal");
-  closeModal.addEventListener("click", () => {
-    successMessage.classList.add("hidden");
+// Mobile menu toggle
+document
+  .getElementById("mobile-menu-button")
+  .addEventListener("click", function () {
+    const menu = document.getElementById("mobile-menu");
+    menu.classList.toggle("open");
   });
 
-  // Reset the form
-  contactForm.reset();
+// Form validation and submission
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Reset error messages
+  document.querySelectorAll('[id^="errorMessage"]').forEach((el) => {
+    el.classList.add("hidden");
+  });
+
+  // Validate form
+  let isValid = true;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name) {
+    document.getElementById("errorMessageName").classList.remove("hidden");
+    isValid = false;
+  }
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById("errorMessageEmail").classList.remove("hidden");
+    isValid = false;
+  }
+
+  if (!message) {
+    document.getElementById("errorMessageMessage").classList.remove("hidden");
+    isValid = false;
+  }
+
+  if (isValid) {
+    // In a real implementation, you would submit the form here
+    // For demo purposes, we'll just show the success message
+    document.getElementById("successMessage").classList.remove("hidden");
+    this.reset();
+  }
+});
+
+// Close modal
+document.getElementById("closeModal").addEventListener("click", function () {
+  document.getElementById("successMessage").classList.add("hidden");
 });

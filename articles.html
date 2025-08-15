@@ -4,587 +4,447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Articles | Latest Technology News</title>
     <script
         src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Tech</title>
     <style>
-        html {
-            transition: all 0.3s ease-in-out;
-            scrollbar-width: thin;
-            scrollbar-color: #308d46 #000;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #6366f1;
+            --accent: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
         }
 
-        /* Chrome, Edge, and Safari */
-        html::-webkit-scrollbar {
-            width: 5px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+            scroll-behavior: smooth;
         }
 
-        /* Track for Chrome, Edge, and Safari */
-        html::-webkit-scrollbar-track {
-            background: #000;
+        .tech-logo {
+            position: relative;
         }
 
-        /* Handle for Chrome and Safari */
-        html::-webkit-scrollbar-thumb {
-            background-color: #fff;
+        .tech-logo::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            bottom: 4px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+
+        .article-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .popular-item {
+            transition: all 0.3s ease;
+        }
+
+        .popular-item:hover {
+            transform: translateX(5px);
+        }
+
+        .explore-btn {
+            transition: all 0.3s ease;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+        }
+
+        .explore-btn:hover {
+            background: linear-gradient(to right, var(--primary-light), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3), 0 2px 4px -1px rgba(79, 70, 229, 0.1);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
             border-radius: 20px;
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
         }
     </style>
 </head>
 
-<body class="bg-[#000] text-white">
+<body class="bg-gray-50">
 
-    <nav class="fixed z-20 w-full h-18 flex justify-around items-center py-4 bg-black mx-auto border-b">
-        <!-- Logo -->
-        <h2 class="cursor-default text-4xl max-md:text-3xl">Tech<span class="text-[#308d46]">.</span></h2>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-gray-900 flex items-center">
+                        <span class="text-primary">Tech</span>Insights
+                    </a>
+                </div>
 
-        <!-- Desktop Menu -->
-        <ul class="flex items-center gap-10 max-sm:hidden">
-            <li class='hover:underline text-[20px]'>
-                <a href="./index.html">Home</a>
-            </li>
-            <li class='hover:underline text-[20px] text-[#308d46]'>
-                <a href="./articles.html">Articles</a>
-            </li>
-            <li class='hover:underline text-[20px]'>
-                <a href="./about.html">About Us</a>
-            </li>
-        </ul>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-900 hover:text-primary font-medium">Home</a>
+                    <a href="articles.html" class="nav-link text-gray-900 hover:text-primary font-medium">Articles</a>
+                    <a href="about.html" class="nav-link text-gray-900 hover:text-primary font-medium">About Us</a>
+                    <a href="#newsletter"
+                        class="bg-white border text-black px-4 py-2 rounded-md font-medium transition duration-300">
+                        Subscribe
+                    </a>
+                </div>
 
-        <!-- Hamburger Menu -->
-        <div class='sm:hidden text-white cursor-pointer text-2xl'>
-            <i class="fas fa-bars text-[#308d46]" id='openMenu'></i>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-900 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div class="mobile-menu hidden absolute top-[69px] w-full bg-black p-5">
-            <ul class="flex flex-col gap-5 items-center">
-                <li class='hover:underline text-[18px]'><a href="./index.html">Home</a></li>
-                <li class='hover:underline text-[18px] text-[#308d46]'><a href="./articles.html">Articles</a></li>
-                <li class='hover:underline text-[18px]'><a href="./about.html">About Us</a></li>
-            </ul>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">Home</a>
+                <a href="articles.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">Articles</a>
+                <a href="about.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">About
+                    Us</a>
+                <a href="#newsletter"
+                    class="block w-full mt-2 text-black px-4 py-2 rounded-md border-2 font-medium transition duration-300 text-center">
+                    Subscribe
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!--  -->
-    <!--  -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
+        <!-- Page Header -->
+        <div class="mb-10">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4">Latest Articles</h1>
+            <p class="text-lg text-gray-600">Stay updated with the most recent developments in technology</p>
+        </div>
 
-    <div class="container mx-auto px-4 py-8 pt-28 mb-10 text-white">
-        <!-- Main Section -->
-        <h1 class="ml-8 mb-5 text-4xl font-bold text-white max-sm:text-3xl max-sm:mb-2">Latest Articles</h1>
-        <div class="flex flex-wrap justify-center">
-            <!-- Articles Sections -->
-            <div
-                class="overflow-hidden w-full xl:w-2/3 px-4 space-y-5 mb-5 border-l-2 border-r-2 border-gray-800 transition-all duration-300">
-
-                <!-- Article Card 1 -->
-                <div
-                    class="px-4 pt-2 pb-5 border-b-2 border-gray-800 flex max-sm:flex-col hover:border-b-[#308d46] md:max-h-[200px] hover:scale-105 transition-all duration-300">
-
-                    <div class="w-1/4 max-sm:w-full max-sm:h-[150px] max-sm:mb-2">
-                        <img src="./images/articles-images/image1.avif" alt="Top Innovations in Technology for 2024"
-                            class="rounded-lg object-cover w-full h-full" loading="lazy">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Main Articles Column -->
+            <div class="lg:w-2/3 space-y-8">
+                <!-- Article 1 -->
+                <article class="article-card bg-white rounded-xl overflow-hidden border border-gray-200">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <img src="./images/articles-images/image1.avif" alt="Top Innovations in Technology for 2024"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 md:w-2/3">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>Oct 7, 2024</span>
+                                <span class="mx-2">•</span>
+                                <span>8 min read</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-3">Top Innovations in Technology for 2024
+                            </h2>
+                            <p class="text-gray-600 mb-4">
+                                Discover the cutting-edge gadgets of 2024, featuring advancements in wearable tech, AI,
+                                and more. Dive into the world of the most exciting devices this year.
+                            </p>
+                            <a href="https://www.simplilearn.com/top-technology-trends-and-jobs-article" target="_blank"
+                                class="explore-btn inline-flex items-center px-4 py-2 rounded-md text-white font-medium">
+                                Explore More
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
+                </article>
 
-                    <div class="w-3/4 pl-4 max-sm:pl-2 max-sm:w-full">
-                        <h2 class="text-2xl text-[#308d46] font-semibold mb-1 max-sm:text-xl">Top Innovations in
-                            Technology for 2024
-                        </h2>
-                        <p class="text-gray-300 text-sm">Oct 7, 2024</p>
-                        <p class="mt-1 max-sm:text-sm">
-                            <strong>Discover</strong> the cutting-edge gadgets of 2024, featuring advancements in
-                            wearable tech, AI, and
-                            more. Dive into the world of the most exciting devices this year.
-                        </p>
-                        <a href="https://www.simplilearn.com/top-technology-trends-and-jobs-article" target="_blank"
-                            class=" py-1 mt-2 rounded-[5px] inline-flex items-center text-white transition-all duration-300">
-                            <button
-                                class="bg-white text-center w-40 rounded-2xl h-8 relative text-black text-md font-semibold group overflow-hidden">
-                                <div
-                                    class="bg-white rounded-xl h-8 w-1/4 flex items-center justify-center absolute top-0 group-hover:w-[160px] z-10 duration-500">
-                                    <i class="fa-solid fa-arrow-left-long text-xl text-[#308d46]"></i>
-                                </div>
-                                <p
-                                    class="bg-[#308d46] text-white h-full w-full flex justify-center items-center translate-x-[17px] group-hover:translate-x-0 duration-500">
-                                    Explore More
-                                </p>
-                            </button>
-                        </a>
-
+                <!-- Article 2 -->
+                <article class="article-card bg-white rounded-xl overflow-hidden border border-gray-200">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <img src="./images/articles-images/image2.jpeg" alt="Top Emerging Technologies"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 md:w-2/3">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>Aug 29, 2024</span>
+                                <span class="mx-2">•</span>
+                                <span>10 min read</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-3">Top Emerging Technologies</h2>
+                            <p class="text-gray-600 mb-4">
+                                Explore the latest technological advancements shaping 2024, from AI innovations to
+                                cutting-edge quantum computing. Stay ahead with insights into the future of tech.
+                            </p>
+                            <a href="https://www.theverge.com/tech" target="_blank"
+                                class="explore-btn inline-flex items-center px-4 py-2 rounded-md text-white font-medium">
+                                Explore More
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
+                </article>
 
-                </div>
-
-                <!-- Article Card 2 -->
-                <div
-                    class="px-4 pt-0 pb-5 border-b-2 border-gray-800 flex max-sm:flex-col hover:border-b-[#308d46] md:max-h-[200px] hover:scale-105 transition-all duration-300">
-
-                    <div class="w-1/4 max-sm:w-full max-sm:h-[150px] max-sm:mb-2">
-                        <img src="./images/articles-images/image2.jpeg" alt="Tech Thumbnail 2"
-                            class="rounded-lg object-cover w-full h-full" loading="lazy">
+                <!-- Article 3 -->
+                <article class="article-card bg-white rounded-xl overflow-hidden border border-gray-200">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <img src="./images/articles-images/image3.jpg" alt="The Future of Technology"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 md:w-2/3">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>Oct 20, 2024</span>
+                                <span class="mx-2">•</span>
+                                <span>12 min read</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-3">The Future of Technology</h2>
+                            <p class="text-gray-600 mb-4">
+                                Explore the latest trends in artificial intelligence, machine learning, blockchain, and
+                                more. Discover how cutting-edge innovations are shaping the future of tech.
+                            </p>
+                            <a href="https://www.techcrunch.com/" target="_blank"
+                                class="explore-btn inline-flex items-center px-4 py-2 rounded-md text-white font-medium">
+                                Explore More
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
+                </article>
 
-                    <div class="w-3/4 pl-4 max-sm:pl-2 max-sm:w-full">
-                        <h2 class="text-2xl text-[#308d46] font-semibold mb-1 max-sm:text-xl">Top Emerging Technologies
-                        </h2>
-                        <p class="text-gray-300 text-sm">Aug 29, 2024</p>
-                        <p class="mt-1 max-sm:text-sm">
-                            <strong>Explore</strong> the latest technological advancements shaping 2024, from AI
-                            innovations to cutting-edge
-                            quantum computing. Stay ahead with insights into the future of tech.
-                        </p>
-                        <a href="https://www.theverge.com/tech" target="_blank"
-                            class="py-1 mt-2 rounded-[5px] inline-flex items-center text-white  transition-all duration-300">
-                            <button
-                                class="bg-white text-center w-40 rounded-2xl h-8 relative text-black text-md font-semibold group overflow-hidden">
-                                <div
-                                    class="bg-white rounded-xl h-8 w-1/4 flex items-center justify-center absolute top-0 group-hover:w-[160px] z-10 duration-500">
-                                    <i class="fa-solid fa-arrow-left-long text-xl text-[#308d46]"></i>
-                                </div>
-                                <p
-                                    class="bg-[#308d46] text-white h-full w-full flex justify-center items-center translate-x-[17px] group-hover:translate-x-0 duration-500">
-                                    Explore
-                                    More</p>
-                            </button>
-                        </a>
-
+                <!-- Article 4 -->
+                <article class="article-card bg-white rounded-xl overflow-hidden border border-gray-200">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <img src="./images/articles-images/image4.jpg"
+                                alt="Breakthroughs in Artificial Intelligence" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 md:w-2/3">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>Oct 21, 2024</span>
+                                <span class="mx-2">•</span>
+                                <span>15 min read</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-3">Breakthroughs in Artificial Intelligence
+                            </h2>
+                            <p class="text-gray-600 mb-4">
+                                Learn about the latest advancements in AI, from natural language processing to machine
+                                learning algorithms that are revolutionizing industries.
+                            </p>
+                            <a href="https://www.theverge.com/tech" target="_blank"
+                                class="explore-btn inline-flex items-center px-4 py-2 rounded-md text-white font-medium">
+                                Explore More
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Article Card 3 -->
-                <div
-                    class="px-4 pt-0 pb-5 border-b-2 border-gray-800 flex max-sm:flex-col hover:border-b-[#308d46] md:max-h-[200px] hover:scale-105 transition-all duration-300">
-
-                    <div class="w-1/4 max-sm:w-full max-sm:h-[150px] max-sm:mb-2">
-                        <img src="./images/articles-images/image3.jpg" alt="Tech Innovations Thumbnail"
-                            class="rounded-lg object-cover w-full h-full" loading="lazy">
-                    </div>
-
-                    <div class="w-3/4 pl-4 max-sm:pl-2 max-sm:w-full">
-
-                        <h2 class="text-2xl text-[#308d46] font-semibold mb-1 max-sm:text-xl">The Future of Technology
-                        </h2>
-                        <p class="text-gray-300 text-sm">October 20, 2024</p>
-                        <p class="mt-1 max-sm:text-sm">
-                            <strong>Explore</strong> the latest trends in artificial intelligence, machine learning,
-                            blockchain, and more.
-                            Discover how cutting-edge innovations are shaping the future of tech, business, and everyday
-                            life.
-                        </p>
-                        <a href="https://www.techcrunch.com/" target="_blank"
-                            class="py-1 mt-2 rounded-[5px] inline-block text-white transition-all duration-300">
-                            <button
-                                class="bg-white text-center w-40 rounded-2xl h-8 relative text-black text-md font-semibold group overflow-hidden">
-                                <div
-                                    class="bg-white rounded-xl h-8 w-1/4 flex items-center justify-center absolute top-0 group-hover:w-[160px] z-10 duration-500">
-                                    <i class="fa-solid fa-arrow-left-long text-xl text-[#308d46]"></i>
-                                </div>
-                                <p
-                                    class="bg-[#308d46] text-white h-full w-full flex justify-center items-center translate-x-[17px] group-hover:translate-x-0 duration-500">
-                                    Explore
-                                    More</p>
-                            </button>
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- Article Card 4 -->
-                <div
-                    class="px-4 pt-0 pb-5 border-b-2 border-gray-800 flex max-sm:flex-col hover:border-b-[#308d46] hover:scale-105 transition-all duration-300">
-
-                    <div class="w-1/4 max-sm:w-full max-sm:h-[150px] max-sm:mb-2">
-                        <img src="./images/articles-images/image4.jpg" alt="Tech Thumbnail"
-                            class="rounded-lg object-cover w-full h-full" loading="lazy">
-                    </div>
-
-                    <div class="w-3/4 pl-4 max-sm:pl-2 max-sm:w-full">
-                        <h2 class="text-2xl text-[#308d46] font-semibold mb-1 max-sm:text-xl">Breakthroughs in
-                            Artificial Intelligence
-                        </h2>
-                        <p class="text-gray-300 text-sm">Oct 21, 2024</p>
-                        <p class="mt-1 max-sm:text-sm">
-                            <strong>Learn</strong> about the latest advancements in AI, from natural language processing
-                            to machine learning
-                            algorithms that are revolutionizing industries. Discover how AI is enhancing automation and
-                            decision-making in 2024.
-                        </p>
-                        <a href="https://www.theverge.com/tech" target="_blank"
-                            class="py-1 mt-2 rounded-[5px] inline-flex items-center text-white transition-all duration-300">
-                            <button
-                                class="bg-white text-center w-40 rounded-2xl h-8 relative text-black text-md font-semibold group overflow-hidden">
-                                <div
-                                    class="bg-white rounded-xl h-8 w-1/4 flex items-center justify-center absolute top-0 group-hover:w-[160px] z-10 duration-500">
-                                    <i class="fa-solid fa-arrow-left-long text-xl text-[#308d46]"></i>
-                                </div>
-                                <p
-                                    class="bg-[#308d46] text-white h-full w-full flex justify-center items-center translate-x-[17px] group-hover:translate-x-0 duration-500">
-                                    Explore
-                                    More</p>
-                            </button>
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- Article Card 5 -->
-                <div
-                    class="px-4 pt-0 pb-5 border-b-2 border-gray-800 flex max-sm:flex-col hover:border-b-[#308d46] hover:scale-105 transition-all duration-300">
-
-                    <div class="w-1/4 max-sm:w-full max-sm:h-[150px] max-sm:mb-2">
-                        <img src="./images/articles-images/image5.jpg" alt="Quantum Computing Thumbnail"
-                            class="rounded-lg object-cover w-full h-full" loading="lazy">
-                    </div>
-
-                    <div class="w-3/4 pl-4 max-sm:pl-2 max-sm:w-full">
-                        <h2 class="text-2xl text-[#308d46] font-semibold mb-1 max-sm:text-xl">Innovations in Quantum
-                            Computing
-                        </h2>
-                        <p class="text-gray-300 text-sm">Oct 21, 2024</p>
-                        <p class="mt-1 max-sm:text-sm">
-                            <strong>Explore</strong> the frontier of quantum computing, where researchers are developing
-                            new algorithms that could solve complex problems in seconds. Discover how this technology is
-                            set to revolutionize industries such as cryptography, drug discovery, and climate modeling.
-                        </p>
-                        <a href="https://www.gsma.com/get-involved/gsma-foundry/gsma_resources/understanding-quantum-computing-a-new-era-of-innovation/"
-                            target="_blank"
-                            class="py-1 mt-2 rounded-[5px] inline-flex items-center text-white transition-all duration-300">
-                            <button
-                                class="bg-white text-center w-40 rounded-2xl h-8 relative text-black text-md font-semibold group overflow-hidden">
-                                <div
-                                    class="bg-white rounded-xl h-8 w-1/4 flex items-center justify-center absolute top-0 group-hover:w-[160px] z-10 duration-500">
-                                    <i class="fa-solid fa-arrow-left-long text-xl text-[#308d46]"></i>
-                                </div>
-                                <p
-                                    class="bg-[#308d46] text-white h-full w-full flex justify-center items-center translate-x-[17px] group-hover:translate-x-0 duration-500">
-                                    Explore
-                                    More</p>
-                            </button>
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- Article Card 6 -->
-                <div
-                    class="px-4 pt-0 pb-5 border-b-2 border-gray-800 flex max-sm:flex-col hover:border-b-[#308d46] hover:scale-105 transition-all duration-300">
-
-                    <div class="w-1/4 max-sm:w-full max-sm:h-[150px] max-sm:mb-2">
-                        <img src="./images/articles-images/image6.jpg" alt="Cybersecurity Innovations Thumbnail"
-                            class="rounded-lg object-cover w-full h-full" loading="lazy">
-                    </div>
-
-                    <div class="w-3/4 pl-4 max-sm:pl-2 max-sm:w-full">
-                        <h2 class="text-2xl text-[#308d46] font-semibold mb-1 max-sm:text-xl">Advancements in
-                            Cybersecurity</h2>
-                        <p class="text-gray-300 text-sm">Oct 22, 2024</p>
-                        <p class="mt-1 max-sm:text-sm">
-                            <strong>Explore</strong> the latest breakthroughs in cybersecurity, including new protocols
-                            and
-                            technologies designed to protect sensitive data. Discover how businesses are adapting to the
-                            ever-evolving landscape of cyber threats.
-                        </p>
-                        <a href="https://www.cobalt.io/blog/ai-advancements-impact-on-cybersecurity-trends/"
-                            target="_blank"
-                            class="py-1 mt-2 rounded-[5px] inline-flex items-center text-white transition-all duration-300">
-                            <button
-                                class="bg-white text-center w-40 rounded-2xl h-8 relative text-black text-md font-semibold group overflow-hidden">
-                                <div
-                                    class="bg-white rounded-xl h-8 w-1/4 flex items-center justify-center absolute top-0 group-hover:w-[160px] z-10 duration-500">
-                                    <i class="fa-solid fa-arrow-left-long text-xl text-[#308d46]"></i>
-                                </div>
-                                <p
-                                    class="bg-[#308d46] text-white h-full w-full flex justify-center items-center translate-x-[17px] group-hover:translate-x-0 duration-500">
-                                    Explore More</p>
-                            </button>
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- Article Card 7 -->
-                <div
-                    class="px-4 pt-0 pb-5 border-b-2 border-gray-800 flex max-sm:flex-col hover:border-b-[#308d46] hover:scale-105 transition-all duration-300">
-
-                    <div class="w-1/4 max-sm:w-full max-sm:h-[150px] max-sm:mb-2">
-                        <img src="./images/articles-images/image7.jpg" alt="Impact of Cyberattacks Thumbnail"
-                            class="rounded-lg object-cover w-full h-full" loading="lazy">
-                    </div>
-
-                    <div class="w-3/4 pl-4 max-sm:pl-2 max-sm:w-full">
-                        <h2 class="text-2xl text-[#308d46] font-semibold mb-1 max-sm:text-xl">The Impact of Cyberattacks
-                        </h2>
-                        <p class="text-gray-300 text-sm">Oct 22, 2024</p>
-                        <p class="mt-1 max-sm:text-sm">
-                            <strong>Understand</strong> the far-reaching effects of cyberattacks on businesses and
-                            individuals.
-                            From financial losses to reputational damage, learn how organizations are grappling with the
-                            aftermath of breaches and the steps they are taking to recover.
-                        </p>
-                        <a href="https://www.nibusinessinfo.co.uk/content/impact-cyber-attack-your-business"
-                            target="_blank"
-                            class="py-1 mt-2 rounded-[5px] inline-flex items-center text-white transition-all duration-300">
-                            <button
-                                class="bg-white text-center w-40 rounded-2xl h-8 relative text-black text-md font-semibold group overflow-hidden">
-                                <div
-                                    class="bg-white rounded-xl h-8 w-1/4 flex items-center justify-center absolute top-0 group-hover:w-[160px] z-10 duration-500">
-                                    <i class="fa-solid fa-arrow-left-long text-xl text-[#308d46]"></i>
-                                </div>
-                                <p
-                                    class="bg-[#308d46] text-white h-full w-full flex justify-center items-center translate-x-[17px] group-hover:translate-x-0 duration-500">
-                                    Explore More</p>
-                            </button>
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- Article Card 8 -->
-                <div class="px-4 pt-0 pb-5 flex max-sm:flex-col hover:scale-105 transition-all duration-300">
-
-                    <div class="w-1/4 max-sm:w-full max-sm:h-[150px] max-sm:mb-2">
-                        <img src="./images/articles-images/image8.jpg" alt="5G Technology Thumbnail"
-                            class="rounded-lg object-cover w-full h-full" loading="lazy">
-                    </div>
-
-                    <div class="w-3/4 pl-4 max-sm:pl-2 max-sm:w-full">
-                        <h2 class="text-2xl text-[#308d46] font-semibold mb-1 max-sm:text-xl">The Revolution of 5G
-                            Technology</h2>
-                        <p class="text-gray-300 text-sm">Oct 22, 2024</p>
-                        <p class="mt-1 max-sm:text-sm">
-                            <strong>Learn</strong> how 5G technology is transforming connectivity and enabling a new era
-                            of innovation.
-                            From faster download speeds to enhanced IoT capabilities, explore the potential of 5G to
-                            revolutionize industries
-                            such as healthcare, transportation, and smart cities.
-                        </p>
-                        <a href="https://www.5gamericas.org/" target="_blank"
-                            class="py-1 mt-2 rounded-[5px] inline-flex items-center text-white transition-all duration-300">
-                            <button
-                                class="bg-white text-center w-40 rounded-2xl h-8 relative text-black text-md font-semibold group overflow-hidden">
-                                <div
-                                    class="bg-white rounded-xl h-8 w-1/4 flex items-center justify-center absolute top-0 group-hover:w-[160px] z-10 duration-500">
-                                    <i class="fa-solid fa-arrow-left-long text-xl text-[#308d46]"></i>
-                                </div>
-                                <p
-                                    class="bg-[#308d46] text-white h-full w-full flex justify-center items-center translate-x-[17px] group-hover:translate-x-0 duration-500">
-                                    Explore More</p>
-                            </button>
-                        </a>
-                    </div>
-
-                </div>
-
+                </article>
             </div>
 
-            <!-- Sidebar Section -->
-            <div
-                class="w-full h-full sticky top-16 lg:w-1/4 max-w-full flex-auto px-4 border-r-2 border-gray-800 max-xl:mt-0 max-xl:px-0 max-sm:mt-10 max-[1280px]:border-r-0">
-                <div class="rounded-lg p-4 mb-5">
-
-                    <!-- Most Popular Section -->
-                    <div class="flex items-center gap-3 mb-2">
-                        <h2 class="text-4xl max-sm:text-3xl font-semibold mb-2 text-[#308d46]">
-                            Most Popular
-                        </h2>
-                        <i class="fa-solid fa-arrow-trend-up text-[#308d46] fill-current rounded-sm text-[2.5rem]"></i>
+            <!-- Sidebar Column -->
+            <div class="lg:w-1/3 space-y-8">
+                <!-- Most Popular Section -->
+                <div class="bg-white rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900">Most Popular</h2>
+                        <i class="fas fa-chart-line text-primary ml-3 text-xl"></i>
                     </div>
 
-                    <!-- Most Popular Articles -->
-                    <main>
-                        <!-- 01 -->
-                        <section class="mb-4 flex group">
-                            <h1 class="text-[#308d46] mr-2 font-bold text-4xl">01</h1>
-                            <div
-                                class="border-b-2 border-b-gray-800 pb-2 group-hover:border-b-[#296e38] transition-all duration-300">
-                                <a href="https://technologymagazine.com/top10/top-10-technology-innovations"
-                                    target="_blank">
-                                    <p class="text-[#308d46] text-xl hover:text-[#296e38] group-hover:underline">
-                                        Exciting Innovations in Tech
+                    <div class="space-y-6">
+                        <!-- Popular Item 1 -->
+                        <a href="https://technologymagazine.com/top10/top-10-technology-innovations" target="_blank"
+                            class="popular-item block group">
+                            <div class="flex items-start">
+                                <span class="text-primary font-bold text-xl mr-3">01</span>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary">Exciting
+                                        Innovations in Tech</h3>
+                                    <p class="text-sm text-gray-600 mt-1">
+                                        Explore groundbreaking innovations in the tech world, including AI developments
+                                        and new software solutions.
                                     </p>
-                                    <p class="text-sm group-hover:underline">Explore groundbreaking innovations in the
-                                        tech
-                                        world,
-                                        including AI developments, smart gadgets, and new software solutions that are
-                                        changing
-                                        the landscape of technology.
-                                    </p>
-                                </a>
+                                </div>
                             </div>
-                        </section>
+                        </a>
 
-                        <!-- 02 -->
-                        <section class="mb-4 flex group">
-                            <h1 class="text-[#308d46] mr-2 font-bold text-4xl">02</h1>
-                            <div
-                                class="border-b-2 border-b-gray-800 pb-2 group-hover:border-b-[#296e38] transition-all duration-300">
-                                <a href="https://www.transcenda.com/insights/technology-trends-to-watch"
-                                    target="_blank">
-                                    <p class="text-[#308d46] text-xl group-hover:underline hover:text-[#296e38]">
-                                        Emerging Technologies to Watch
+                        <!-- Popular Item 2 -->
+                        <a href="https://www.transcenda.com/insights/technology-trends-to-watch" target="_blank"
+                            class="popular-item block group">
+                            <div class="flex items-start">
+                                <span class="text-primary font-bold text-xl mr-3">02</span>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary">Emerging
+                                        Technologies to Watch</h3>
+                                    <p class="text-sm text-gray-600 mt-1">
+                                        Explore groundbreaking technologies that are shaping the future, from AI to
+                                        blockchain.
                                     </p>
-                                    <p class="text-sm group-hover:underline">Explore groundbreaking technologies that
-                                        are shaping the future, from AI advancements to blockchain innovations, perfect
-                                        for tech enthusiasts eager to stay ahead.</p>
-                                </a>
+                                </div>
                             </div>
-                        </section>
+                        </a>
 
-                        <!-- 03 -->
-                        <section class="mb-4 flex group">
-                            <h1 class="text-[#308d46] mr-2 font-bold text-4xl">03</h1>
-                            <div
-                                class="border-b-2 border-b-gray-800 pb-2 group-hover:border-b-[#296e38] transition-all duration-300">
-                                <a href="https://www.techworld.com/emerging-tech" target="_blank">
-                                    <p class="text-[#308d46] text-xl group-hover:underline hover:text-[#296e38]">
-                                        Future of Smart Home Technology
+                        <!-- Popular Item 3 -->
+                        <a href="https://www.techworld.com/emerging-tech" target="_blank"
+                            class="popular-item block group">
+                            <div class="flex items-start">
+                                <span class="text-primary font-bold text-xl mr-3">03</span>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary">Future of
+                                        Smart Home Technology</h3>
+                                    <p class="text-sm text-gray-600 mt-1">
+                                        Discover cutting-edge developments in AI and automation transforming how we
+                                        live.
                                     </p>
-                                    <p class="text-sm group-hover:underline">Discover cutting-edge developments in AI
-                                        and automation, including smart assistants and connected devices that transform
-                                        how we live and work.</p>
+                                </div>
                             </div>
-                        </section>
+                        </a>
 
-                        <!-- 04 -->
-                        <section class="mb-4 flex group">
-                            <h1 class="text-[#308d46] mr-2 font-bold text-4xl">04</h1>
-                            <div
-                                class="border-b-2 border-b-gray-800 pb-2 group-hover:border-b-[#296e38] transition-all duration-300">
-                                <a href="https://www.iea.org/energy-system/transport/electric-vehicles" target="_blank">
-                                    <p
-                                        class="text-[#308d46] text-xl group-hover:underline hover:text-[#296e38] transition-all ">
-                                        Electric Vehicle Sales Surge
+                        <!-- Popular Item 4 -->
+                        <a href="https://www.iea.org/energy-system/transport/electric-vehicles" target="_blank"
+                            class="popular-item block group">
+                            <div class="flex items-start">
+                                <span class="text-primary font-bold text-xl mr-3">04</span>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary">Electric
+                                        Vehicle Sales Surge</h3>
+                                    <p class="text-sm text-gray-600 mt-1">
+                                        Explore the rapid growth in electric vehicle sales and its global implications.
                                     </p>
-                                    <p class="text-sm group-hover:underline">Explore the rapid growth in electric
-                                        vehicle sales and its implications for the automotive industry, environment, and
-                                        global economy.</p>
-                                </a>
+                                </div>
                             </div>
-                        </section>
-
-                        <!-- 05 -->
-                        <section class="mb-4 flex group">
-                            <h1 class="text-[#308d46] mr-2 font-bold text-4xl">05</h1>
-                            <div
-                                class="border-b-2 border-b-gray-800 pb-2 group-hover:border-b-[#296e38] transition-all duration-300">
-                                <a target="_blank" href="https://www.apple.com/iphone-16/">
-                                    <p
-                                        class="text-[#308d46] text-xl group-hover:underline hover:text-[#296e38] transition-all ">
-                                        Apple Unveils iPhone 16 with Exciting New Features
-                                    </p>
-                                    <p class="text-sm group-hover:underline">Apple has officially launched the iPhone
-                                        16, introducing innovative features such as a USB-C port, enhanced camera
-                                        capabilities, and improved battery life.</p>
-                                </a>
-                            </div>
-                        </section>
-
-                        <!-- 06 -->
-                        <section class="mb-4 flex group">
-                            <h1 class="text-[#308d46] mr-2 font-bold text-4xl">06</h1>
-                            <div
-                                class="border-b-2 border-b-gray-800 pb-2 group-hover:border-b-[#296e38] transition-all duration-300">
-                                <a href="https://www.energy.gov" target="_blank">
-                                    <p class="text-[#308d46] text-xl hover:text-[#296e38] group-hover:underline">
-                                        Breakthroughs in Renewable Energy Tech
-                                    </p>
-                                    <p class="text-sm group-hover:underline">
-                                        Discover how innovative technologies are driving the renewable energy sector,
-                                        from advanced solar panels to smart grid solutions that promote sustainability
-                                        and efficiency.
-                                    </p>
-                                </a>
-                            </div>
-                        </section>
-
-                    </main>
-
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Tags -->
-                <!-- <div class="bg-white rounded-lg shadow-lg p-5">
-                    <h2 class="text-xl font-semibold mb-4 text-black">Popular Tags</h2>
-                    <div class="flex flex-wrap gap-2">
-                        <a href="/tag/tech" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full">Tech</a>
-                        <a href="/tag/travel" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full">Travel</a>
-                        <a href="/tag/health" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full">Health</a>
-                        <a href="/tag/lifestyle" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full">Lifestyle</a>
-                    </div>
-                </div> -->
-
+                <!-- Newsletter Section -->
+                <div id="newsletter" class="bg-white rounded-xl p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Stay Updated</h2>
+                    <p class="text-gray-600 mb-4">Get the latest tech news delivered to your inbox</p>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="email" class="sr-only">Email address</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-primary focus:border-primary"
+                                placeholder="Your email address">
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary hover:bg-primary-light text-white py-3 px-4 rounded-lg font-medium transition duration-300">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!--  -->
-    <!--  -->
+    </main>
 
     <!-- Footer -->
-    <footer class="w-full bg-gray-950 text-white px-10 py-4 border-t-2 border-t-gray-800">
-        <div class="container mx-auto flex justify-between items-center max-sm:flex-col">
-            <p>&copy; 2024 <span class="text-[#308d46]">Tech.</span> All Rights Reserved.</p>
-
-            <!-- Social Media -->
-            <div class="mt-2 flex justify-center items-center gap-5">
-                <!-- Facebook Icon -->
-                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
-
-                    <a href="#">
-                        <i
-                            class="fa-brands fa-facebook-f text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html" class="text-2xl font-bold flex items-center">
+                        <span class="tech-logo text-gray-900">Tech</span>
+                        <span class="text-primary">.</span>
                     </a>
-
-                    <div
-                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
-                        Facebook
-                    </div>
+                    <p class="mt-2 text-gray-500">
+                        © 2024 Tech. All rights reserved.
+                    </p>
                 </div>
 
-                <!-- Twitter Icon -->
-                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
-
-                    <a href="#">
-                        <i
-                            class="fa-brands fa-twitter text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
+                <div class="flex space-x-6">
+                    <a href="#" class="social-icon text-gray-500 hover:text-[#1877f2]">
+                        <i class="fab fa-facebook-f text-xl"></i>
                     </a>
-
-                    <div
-                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
-                        Twitter
-                    </div>
-                </div>
-
-                <!-- LinkedIn Icon -->
-                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
-                    <a href="#">
-                        <i
-                            class="fa-brands fa-linkedin-in text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
+                    <a href="#" class="social-icon text-gray-500 hover:text-[#1da1f2]">
+                        <i class="fab fa-twitter text-xl"></i>
                     </a>
-                    <div
-                        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 transform scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
-                        LinkedIn
-                    </div>
-                </div>
-
-                <!-- Email Icon -->
-                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
-                    <a href="mailto:erblinthaqi40@gmail.com">
-                        <i
-                            class="fa-regular fa-envelope text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
+                    <a href="#" class="social-icon text-gray-500 hover:text-[#0077b5]">
+                        <i class="fab fa-linkedin-in text-xl"></i>
                     </a>
-
-                    <div
-                        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 transform scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
-                        Email
-                    </div>
+                    <a href="mailto:erblinthaqi40@gmail.com" class="social-icon text-gray-500 hover:text-primary">
+                        <i class="far fa-envelope text-xl"></i>
+                    </a>
                 </div>
             </div>
-
         </div>
     </footer>
 
-    <script src="./javascipt/index.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('open');
+        });
+    </script>
 </body>
 
 </html>

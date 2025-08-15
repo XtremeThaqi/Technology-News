@@ -1,11 +1,3 @@
-// Mobile menu toggle
-document
-  .getElementById("mobile-menu-button")
-  .addEventListener("click", function () {
-    const menu = document.getElementById("mobile-menu");
-    menu.classList.toggle("open");
-  });
-
 // Category filtering
 const filterButtons = document.querySelectorAll("#all, #tech, #business");
 const allArticles = document.querySelectorAll(".article");

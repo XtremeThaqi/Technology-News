@@ -4,414 +4,594 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Insights | Technology & Business Trends</title>
     <script
         src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Tech</title>
     <style>
-        html {
-            transition: all 0.3s ease-in-out;
-            scrollbar-width: thin;
-            scrollbar-color: #308d46 #000;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
         }
 
-        /* Chrome, Edge, and Safari */
-        html::-webkit-scrollbar {
-            width: 5px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            scroll-behavior: smooth;
         }
 
-        /* Track for Chrome, Edge, and Safari */
-        html::-webkit-scrollbar-track {
-            background: #000;
+        .nav-link {
+            position: relative;
         }
 
-        /* Handle for Chrome and Safari */
-        html::-webkit-scrollbar-thumb {
-            background-color: #fff;
-            border-radius: 20px;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
         }
 
-        .theshadow {
-            box-shadow: 0 0 5px rgba(255, 255, 255, .2),
-                inset 0 0 10px rgba(255, 255, 255, .2);
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+
+        .article-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .tag-tech {
+            background-color: #dbeafe;
+            color: var(--primary-dark);
+        }
+
+        .tag-business {
+            background-color: #dcfce7;
+            color: #047857;
         }
     </style>
 </head>
 
-<body class="bg-black text-white">
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-gray-900 flex items-center">
+                        <span class="text-primary">Tech</span>Insights
+                    </a>
+                </div>
 
-    <nav class="fixed w-full h-18 flex justify-around items-center z-10 py-4 bg-black mx-auto border-b">
-        <!-- Logo -->
-        <h2 class="cursor-default text-4xl max-md:text-3xl">Tech<span class="text-[#308d46]">.</span></h2>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-900 hover:text-primary font-medium">Home</a>
+                    <a href="articles.html" class="nav-link text-gray-900 hover:text-primary font-medium">Articles</a>
+                    <a href="about.html" class="nav-link text-gray-900 hover:text-primary font-medium">About Us</a>
+                    <a href="#newsletter"
+                        class="bg-white border text-black px-4 py-2 rounded-md font-medium transition duration-300">
+                        Subscribe
+                    </a>
+                </div>
 
-        <!-- Desktop Menu -->
-        <ul class="flex items-center gap-10 max-sm:hidden">
-            <li class='hover:underline text-[20px] text-[#308d46]'>
-                <a href="./index.html">Home</a>
-            </li>
-            <li class='hover:underline text-[20px]'>
-                <a href="./articles.html">Articles</a>
-            </li>
-            <li class='hover:underline text-[20px]'>
-                <a href="./about.html">About Us</a>
-            </li>
-        </ul>
-
-        <!-- Hamburger Menu -->
-        <div class='sm:hidden text-white cursor-pointer text-2xl' id='openMenu'>
-            <i class="fas fa-bars text-[#308d46]"></i>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-900 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div class="mobile-menu hidden absolute top-[69px] w-full bg-black p-5">
-            <ul class="flex flex-col gap-5 items-center">
-                <li class='hover:underline text-[18px] text-[#308d46]'><a href="./index.html">Home</a></li>
-                <li class='hover:underline text-[18px]'><a href="./articles.html">Articles</a></li>
-                <li class='hover:underline text-[18px]'><a href="./about.html">About Us</a></li>
-            </ul>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">Home</a>
+                <a href="articles.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">Articles</a>
+                <a href="about.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">About
+                    Us</a>
+                <a href="#newsletter"
+                    class="block w-full mt-2 text-black px-4 py-2 rounded-md border-2 font-medium transition duration-300 text-center">
+                    Subscribe
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!--  -->
-    <!--  -->
+    <!-- Hero Section -->
+    <header class="relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                <div class="pt-10 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
+                    <div class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                        <div class="sm:text-center lg:text-left">
+                            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                                <span class="block">Stay Ahead with</span>
+                                <span class="block text-primary">Tech Insights</span>
+                            </h1>
+                            <p
+                                class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                Cutting-edge technology analysis, business trends, and expert tutorials to keep you
+                                informed in the fast-paced digital world.
+                            </p>
+                            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                                <div class="rounded-md shadow">
+                                    <a href="articles.html"
+                                        class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-black bg-primary hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                                        Explore Articles
+                                    </a>
+                                </div>
+                                <div class="mt-3 sm:mt-0 sm:ml-3">
+                                    <a href="#trending"
+                                        class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-gray-50 hover:bg-gray-100 md:py-4 md:text-lg md:px-10">
+                                        Trending Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+                src="./images/home-images/image1.jpg" alt="Coding on laptop">
+        </div>
+    </header>
 
-    <!-- Main Section -->
-    <div class="container mx-auto p-5 pt-28 mb-10">
+    <!-- Featured Articles -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Featured Articles
+                </h2>
+                <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+                    Handpicked content to expand your knowledge
+                </p>
+            </div>
 
-        <!-- Categories -->
-        <div class="flex flex-col gap-5 mb-5">
-            <h2 class="text-4xl font-bold tracking-tight">Categories:</h2>
-            <div class="flex gap-3">
+            <!-- Category Filters -->
+            <div class="mt-8 flex justify-center space-x-4">
                 <button id="all"
-                    class="bg-[#308d46] px-3 py-1.5 rounded-[5px] focus:bg-[#29783b] transition-all duration-300">All</button>
+                    class="px-4 py-2 rounded-lg bg-blue-500 text-gray-200 font-medium transition-colors duration-200 hover:bg-blue-600">
+                    All Articles
+                </button>
                 <button id="tech"
-                    class="bg-[#308d46] px-3 py-1.5 rounded-[5px] focus:bg-[#29783b] transition-all duration-300">Tech</button>
+                    class="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 font-medium transition-colors duration-200 hover:bg-gray-300">
+                    Technology
+                </button>
                 <button id="business"
-                    class="bg-[#308d46] px-3 py-1.5 rounded-[5px] focus:bg-[#29783b] transition-all duration-300">Business</button>
+                    class="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 font-medium transition-colors duration-200 hover:bg-gray-300">
+                    Business
+                </button>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="mt-12 grid gap-8 lg:grid-cols-3 md:grid-cols-2">
+                <!-- Article 1 -->
+                <div class="article bg-white rounded-lg overflow-hidden border border-gray-200" data-category="tech">
+                    <div class="relative h-48 overflow-hidden">
+                        <img class="absolute h-full w-full object-cover"
+                            src="./images/home-images/featured_article-images/image1.jpg" alt="JavaScript code">
+                        <span class="absolute top-3 right-3 px-3 py-1 text-xs font-semibold rounded-full tag-tech">
+                            Tech
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>May 16, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            Mastering Modern JavaScript: ES6+ Features You Should Know
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Dive into the powerful features of modern JavaScript that will make your code cleaner, more
+                            efficient, and easier to maintain.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                            Read more
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="article bg-white rounded-lg overflow-hidden border border-gray-200"
+                    data-category="business">
+                    <div class="relative h-48 overflow-hidden">
+                        <img class="absolute h-full w-full object-cover"
+                            src="./images/home-images/featured_article-images/image2.jpg" alt="Data analytics">
+                        <span class="absolute top-3 right-3 px-3 py-1 text-xs font-semibold rounded-full tag-business">
+                            Business
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>June 2, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>10 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            Data-Driven Decision Making: Transforming Business Strategy
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            How leveraging data analytics can give your business a competitive edge and drive strategic
+                            decision-making processes.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                            Read more
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="article bg-white rounded-lg overflow-hidden border border-gray-200" data-category="tech">
+                    <div class="relative h-48 overflow-hidden">
+                        <img class="absolute h-full w-full object-cover"
+                            src="./images/home-images/featured_article-images/image3.jpg" alt="React logo">
+                        <span class="absolute top-3 right-3 px-3 py-1 text-xs font-semibold rounded-full tag-tech">
+                            Tech
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>June 10, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>12 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            React 18: What's New and How to Upgrade
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Explore the latest features in React 18 including concurrent rendering, automatic batching,
+                            and the new root API.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                            Read more
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 text-center">
+                <a href="./articles.html"
+                    class="inline-flex items-center px-6 py-3 border text-base font-medium rounded-md shadow-sm text-black bg-primary hover:bg-primary-dark">
+                    View All Articles
+                </a>
             </div>
         </div>
+    </section>
 
-        <!-- Articles -->
-        <div class="flex justify-between flex-col items-center mb-6">
-            <!-- Articles Sections -->
-            <div class="p-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+    <!-- Trending News -->
+    <section id="trending" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Trending Now
+                </h2>
+                <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+                    The most popular articles this week
+                </p>
+            </div>
 
-                <!-- Tech Section -->
-                <div id="tech-section"
-                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
-                    <img src="./images/home-images/Main-images/image1.jpeg" alt="Coding on a laptop"
-                        class="w-full h-40 max-h-44 object-cover pointer-events-none" loading="lazy" />
-                    <div class="p-2">
-                        <h2 class="text-xl font-semibold text-[#308d46]">Mastering JavaScript</h2>
-                        <p class="text-white mt-2 mb-16 border-l-2 border-[#308d46] pl-2">Dive into JavaScript, the
-                            backbone of web development, and
-                            learn how to
-                            create dynamic websites.</p>
-                        <a href="https://medium.com/@hai98/mastering-javascript-a-comprehensive-guide-for-beginners-4cf42eed45fd"
-                            target="_blank"
-                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
-                            Read More
-                        </a>
+            <div class="mt-10">
+                <div class="space-y-8">
+                    <!-- Trending Item 1 -->
+                    <div class="bg-white overflow-hidden shadow rounded-lg">
+                        <div class="md:flex">
+                            <div class="md:flex-shrink-0 md:w-1/3">
+                                <img class="h-48 w-full object-cover md:h-full"
+                                    src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="AI technology">
+                            </div>
+                            <div class="p-8 md:w-2/3">
+                                <div class="flex items-center">
+                                    <span class="px-3 py-1 text-xs font-semibold rounded-full tag-tech mr-3">
+                                        Tech
+                                    </span>
+                                    <div class="text-sm text-gray-500">
+                                        <time datetime="2023-06-15">June 15, 2023</time>
+                                        <span> • </span>
+                                        <span>15 min read</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="block mt-2">
+                                    <h3
+                                        class="text-xl font-semibold text-gray-900 hover:text-primary transition duration-300">
+                                        The Future of AI: How Generative Models Are Changing Everything
+                                    </h3>
+                                    <p class="mt-3 text-base text-gray-600">
+                                        From creating art to writing code, generative AI models are revolutionizing
+                                        industries. We explore the implications and future possibilities of this
+                                        groundbreaking technology.
+                                    </p>
+                                </a>
+                                <div class="mt-4 flex items-center">
+                                    <div class="flex-shrink-0">
+                                        <img class="h-10 w-10 rounded-full"
+                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80"
+                                            alt="Author">
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-900">
+                                            Jane Cooper
+                                        </p>
+                                        <div class="flex space-x-1 text-sm text-gray-500">
+                                            <span>Senior AI Researcher</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trending Item 2 -->
+                    <div class="bg-white overflow-hidden shadow rounded-lg">
+                        <div class="md:flex">
+                            <div class="md:flex-shrink-0 md:w-1/3">
+                                <img class="h-48 w-full object-cover md:h-full"
+                                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Remote work">
+                            </div>
+                            <div class="p-8 md:w-2/3">
+                                <div class="flex items-center">
+                                    <span class="px-3 py-1 text-xs font-semibold rounded-full tag-business mr-3">
+                                        Business
+                                    </span>
+                                    <div class="text-sm text-gray-500">
+                                        <time datetime="2023-06-12">June 12, 2023</time>
+                                        <span> • </span>
+                                        <span>12 min read</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="block mt-2">
+                                    <h3
+                                        class="text-xl font-semibold text-gray-900 hover:text-primary transition duration-300">
+                                        The Hybrid Work Revolution: Building a Productive Remote Culture
+                                    </h3>
+                                    <p class="mt-3 text-base text-gray-600">
+                                        As companies navigate the post-pandemic world, hybrid work models are emerging
+                                        as the new standard. Learn how top companies are making it work.
+                                    </p>
+                                </a>
+                                <div class="mt-4 flex items-center">
+                                    <div class="flex-shrink-0">
+                                        <img class="h-10 w-10 rounded-full"
+                                            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80"
+                                            alt="Author">
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-900">
+                                            Michael Johnson
+                                        </p>
+                                        <div class="flex space-x-1 text-sm text-gray-500">
+                                            <span>Workplace Strategist</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Tech Section -->
-                <div id="tech-section"
-                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
-                    <img src="./images/home-images/Main-images/image2.webp" alt="Coding on a desktop"
-                        class="w-full h-40 object-cover pointer-events-none" loading="lazy" />
-                    <div class="p-2">
-                        <h2 class="text-xl font-semibold text-[#308d46]">Understanding Python</h2>
-                        <p class="text-white mt-2 mb-16 border-l-2 border-[#308d46] pl-2">Learn Python, a versatile
-                            programming language, and explore
-                            its
-                            applications in data science and web development.</p>
-                        <a href="https://www.python.org/about/gettingstarted/" target="_blank"
-                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tech Section -->
-                <div id="tech-section"
-                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
-                    <img src="./images/home-images/Main-images/image3.jpg" alt="Writing code on a notebook"
-                        loading="lazy" class="w-full h-40 object-cover pointer-events-none" />
-                    <div class="p-2">
-                        <h2 class="text-xl font-semibold text-[#308d46]">The Power of HTML & CSS</h2>
-                        <p class="text-white mt-2 mb-16 border-l-2 border-[#308d46] pl-2">Explore the fundamentals of
-                            web design with HTML and CSS, and
-                            create
-                            stunning web pages from scratch.</p>
-                        <a href="https://medium.com/@rimonppip0/the-power-of-html-css-building-the-foundation-of-the-web-8d2546f78818"
-                            target="_blank"
-                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Business Section -->
-                <div id="business-section"
-                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
-                    <img src="./images/home-images/Main-images/image4.jpeg" alt="Coding on a tablet" loading="lazy"
-                        class="w-full h-40 object-cover pointer-events-none" />
-                    <div class="p-2">
-                        <h2 class="text-xl font-semibold text-[#308d46]">Introduction to Web Development</h2>
-                        <p class="text-white mt-2 mb-16 border-l-2 border-[#308d46] pl-2">Begin your journey in web
-                            development with this comprehensive
-                            guide that
-                            covers the basics and beyond.</p>
-                        <a href="https://www.geeksforgeeks.org/web-development" target="_blank"
-                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tech Section -->
-                <div id="tech-section"
-                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
-                    <img src="./images/home-images/Main-images/image5.webp" alt="Collaborative coding session"
-                        class="w-full h-40 object-cover pointer-events-none" loading="lazy" />
-                    <div class="p-2">
-                        <h2 class="text-xl font-semibold text-[#308d46]">Collaboration in Coding</h2>
-                        <p class="text-white mt-2 mb-16 border-l-2 border-[#308d46] pl-2">Discover best practices for
-                            collaboration in coding projects
-                            and
-                            tools to enhance teamwork.</p>
-                        <a href="https://www.developernation.net/blog/how-does-collaborative-coding-work"
-                            target="_blank"
-                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Business Section -->
-                <div id="business-section"
-                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
-                    <img src="./images/home-images/Main-images/image6.webp" alt="Code review session" loading="lazy"
-                        class="w-full h-40 object-cover pointer-events-none" />
-                    <div class="p-2">
-                        <h2 class="text-xl font-semibold text-[#308d46]">Effective Code Review Practices</h2>
-                        <p class="text-white mt-2 mb-16 border-l-2 border-[#308d46] pl-2">Learn how to conduct effective
-                            code reviews to improve code
-                            quality and
-                            team performance.</p>
-                        <a href="https://stackoverflow.blog/2019/09/30/how-to-make-good-code-reviews-better"
-                            target="_blank"
-                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Business Section -->
-                <div id="business-section"
-                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
-                    <img src="./images/home-images/Main-images/image7.avif" alt="Strategic Business Planning"
-                        loading="lazy" class="w-full h-40 object-cover pointer-events-none" />
-                    <div class="p-2">
-                        <h2 class="text-xl font-semibold text-[#308d46]">Maximizing Business Efficiency</h2>
-                        <p class="text-white mt-2 mb-16 border-l-2 border-[#308d46] pl-2">Learn key strategies to
-                            enhance operational efficiency and
-                            drive
-                            growth in your business.</p>
-                        <a href="https://www.market-inspector.co.uk/blog/2020/02/maximise-business-efficiency"
-                            target="_blank"
-                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tech Section -->
-                <div id="tech-section"
-                    class="relative rounded-b-[3px] border-r-2 pr-4 border-b-2 border-gray-800 overflow-hidden hover:border-[#29783b] hover:scale-105 transition-all duration-300">
-                    <img src="./images/home-images/Main-images/image8.jpeg" alt="Emerging Technologies" loading="lazy"
-                        class="w-full h-40 object-cover pointer-events-none" />
-                    <div class="p-2">
-                        <h2 class="text-xl font-semibold text-[#308d46]">Harnessing Emerging Technologies</h2>
-                        <p class="text-white mt-2 mb-16 border-l-2 border-[#308d46] pl-2">Stay ahead of the curve by
-                            exploring the latest tech trends and
-                            their impact on the industry.</p>
-                        <a href="https://gordontredgold.com/harnessing-emerging-technologies-to-gain-a-strategic-advantage/#:~:text=The%20successful%20harnessing%20of%20emerging,on%20ethical%20and%20responsible%20use."
-                            target="_blank"
-                            class="absolute bottom-4 bg-[#308d46] px-3 py-1.5 mt-4 rounded-[5px] inline-block hover:bg-[#29783b] transition-all duration-300">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-
             </div>
         </div>
+    </section>
 
-    </div>
-
-    <!--  -->
-    <!--  -->
-
-    <!-- trending news -->
-    <div class="container mx-auto p-5 mb-10 overflow-hidden border-b-2 border-gray-800">
-        <h2 class="text-4xl md:text-5xl mb-10 font-extrabold tracking-tight">Trending News</h2>
-
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
-            <a href="https://daily.dev/blog/9-effective-communication-tips-for-software-developers" target="_blank"
-                class="flex rounded-md border border-gray-800 max-sm:flex-col group min-h-40 theshadow">
-                <img src="./images/home-images/side-images/img1.jpeg" class="w-56 max-sm:w-full min-h-40 max-h-44 object-cover">
-                <div class="flex flex-col gap-5 py-4 px-3 max-sm:border-l-2 border-[#308d46]">
-                    <h2 class="text-lg md:text-xl xl:text-2xl font-bold group-hover:underline tracking-tight">9
-                        Effective
-                        Communication Tips for Software
-                        Developers</h2>
-                    <p class="text-sm md:text-md xl:text-[15px] leading-6">Effective communication is crucial in the
-                        world of software development, where teamwork and collaboration are essential for success.
-                    </p>
-                </div>
-            </a>
-
-            <a href="https://www.wired.com/story/google-search-ai-spam-original-reporting-news-results" target="_blank"
-                class="flex flex-row-reverse rounded-md border border-gray-800 max-sm:flex-col group min-h-40 theshadow">
-                <img src="./images/home-images/side-images/img2.webp" class="w-56 max-sm:w-full min-h-40 max-h-44 object-cover">
-                <div class="flex flex-col gap-2 py-4 px-3 max-sm:border-l-2 border-[#308d46]">
-                    <h2 class="text-lg md:text-xl xl:text-2xl font-bold group-hover:underline tracking-tight">Google
-                        Search Ranks AI Spam Above Original Reporting in News Results</h2>
-                    <p class="text-sm md:text-md xl:text-[15px] leading-6">Recent observations reveal a troubling trend:
-                        Google Search algorithms are increasingly prioritizing AI-generated content over original
-                        reporting in news results.
-                    </p>
-                </div>
-            </a>
-
-            <a href="https://dev.to/ranjit_reddy_cdb410e64ad8/revolutionizing-web-development-harnessing-the-power-of-reactjs-for-modern-web-applications-2535" target="_blank"
-                class="flex rounded-md border border-gray-800 max-sm:flex-col group min-h-40 theshadow">
-                <img src="./images/home-images/side-images/img3.png" class="w-56 max-sm:w-full mainh-40 max-h-44 object-cover">
-                <div class="flex flex-col gap-2 py-4 px-3 max-sm:border-l-2 border-[#308d46]">
-                    <h2 class="text-lg md:text-xl xl:text-2xl font-bold group-hover:underline tracking-tight">Harnessing
-                        the Power of React for Dynamic Web Development</h2>
-                    <p class="text-sm md:text-md xl:text-[15px] leading-6">React revolutionizes front-end development,
-                        enabling easy creation of dynamic user interfaces with reusable components for scalable code.
-                    </p>
-                </div>
-            </a>
-
-            <a href="https://gist.ly/youtube-summarizer/10-advanced-tailwind-css-tricks-you-need-to-know" target="_blank"
-                class="flex flex-row-reverse rounded-md border border-gray-800 max-sm:flex-col group min-h-40 theshadow">
-                <img src="./images/home-images/side-images/img4.jpg" class="w-56 max-sm:w-full min-h-40 max-h-44 object-cover">
-                <div class="flex flex-col gap-2 py-4 px-3 max-sm:border-l-2 border-[#308d46]">
-                    <h2 class="text-lg md:text-xl xl:text-2xl font-bold group-hover:underline tracking-tight">10 Essential Tailwind CSS Tips for Web Developers</h2>
-                    <p class="text-sm md:text-md xl:text-[15px] leading-6">
-                        Master Tailwind CSS with these essential tips, from utility class tricks to responsive design hacks. Perfect for anyone looking to level up their styling skills in modern web development.
-                    </p>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <!--  -->
-    <!--  -->
-
-    <!-- Subscription Form -->
-    <div class="flex flex-col justify-center items-center my-5 gap-3">
-        <h1 class="text-2xl">Dont Miss Any Updates!</h1>
-        <form id="subscription-form" action="https://api.web3forms.com/submit" method="post">
-
-            <input type="hidden" name="access_key" value="1101d744-cf60-4cbf-b87e-e3067d029143">
-
-            <div class="flex items-center justify-center gap-2">
-                <input
-                    class="bg-[#308d46] text-xl w-[20rem] border-none text-white py-3 rounded-[3px] focus:ring-[#308d46] placeholder:text-white max-sm:w-52 max-sm:py-2.5 max-sm:text-[15px]"
-                    type="email" name="email" placeholder="Enter Your Email" required>
-
-                <button
-                    class="border border-[#308d46] rounded-[3px] text-lg p-3 text-[#308d46] max-sm:p-2.5 max-sm:text-[1rem]"
-                    type="submit">Subscribe</button>
+    <!-- Newsletter -->
+    <section id="newsletter" class="py-12 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    Stay Updated
+                </h2>
+                <p class="mt-3 max-w-2xl mx-auto text-xl text-primary-100">
+                    Get the latest tech news and insights delivered to your inbox
+                </p>
             </div>
-        </form>
 
-        <!-- Thank you modal -->
-        <div id="modal" class="hidden fixed inset-0 bg-black opacity-85 flex justify-center items-center h-screen">
-            <div class="border rounded-lg flex flex-col items-center m-5 py-10 px-5 w-auto">
-                <i class="fa-regular fa-circle-check text-8xl max-sm:text-6xl text-[#308d46]"></i>
-                <h2 class="text-3xl text-white max-sm:text-2xl my-5">Subscription Confirmed!</h2>
-                <p class="text-2xl max-md:text-xl max-sm:text-[16px] text-center">Thank you for subscribing! Your
-                    subscription is now active, and we’re excited to have you on board.</p>
-                <button id="closeModal" class="bg-[#308d46] text-lg px-8 py-1.5 rounded-[3px] mt-5">Close</button>
+            <div class="mt-8 sm:mx-auto sm:max-w-lg">
+                <form id="subscription-form" class="sm:flex">
+                    <input type="hidden" name="access_key" value="1101d744-cf60-4cbf-b87e-e3067d029143">
+                    <input type="hidden" name="redirect" value="https://yourdomain.com/thank-you">
+
+                    <label for="email" class="sr-only">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required
+                        class="w-full px-5 py-3 placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-white focus:outline-none rounded-md sm:max-w-xs"
+                        placeholder="Enter your email">
+                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                        <button type="submit"
+                            class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
+                <p class="mt-3 text-sm text-primary-100">
+                    We respect your privacy. Unsubscribe at any time.
+                </p>
             </div>
         </div>
-
-    </div>
-
-    <!--  -->
-    <!--  -->
+    </section>
 
     <!-- Footer -->
-    <footer class="w-full bg-gray-950 text-white px-10 py-4 border-t-2 border-t-gray-800">
-        <div class="container mx-auto flex justify-between items-center max-sm:flex-col">
-            <p>&copy; 2024 <span class="text-[#308d46]">Tech.</span> All Rights Reserved.</p>
-
-            <!-- Social Media -->
-            <div class="mt-2 flex justify-center items-center gap-5">
-                <!-- Facebook Icon -->
-                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
-
-                    <a href="#">
-                        <i
-                            class="fa-brands fa-facebook-f text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
-                    </a>
-
-                    <div
-                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
-                        Facebook
+    <footer class="bg-gray-900">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="space-y-8 xl:col-span-1">
+                    <h2 class="text-2xl font-bold text-white flex items-center">
+                        <span class="text-primary">Tech</span>Insights
+                    </h2>
+                    <p class="text-gray-300 text-base">
+                        Cutting-edge technology analysis, business trends, and expert tutorials to keep you informed in
+                        the fast-paced digital world.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <span class="sr-only">Facebook</span>
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <span class="sr-only">Twitter</span>
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <span class="sr-only">LinkedIn</span>
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <span class="sr-only">GitHub</span>
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
                     </div>
                 </div>
-
-                <!-- Twitter Icon -->
-                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
-
-                    <a href="#">
-                        <i
-                            class="fa-brands fa-twitter text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
-                    </a>
-
-                    <div
-                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
-                        Twitter
+                <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Navigation
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="index.html" class="text-base text-gray-400 hover:text-white">
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="articles.html" class="text-base text-gray-400 hover:text-white">
+                                        Articles
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about.html" class="text-base text-gray-400 hover:text-white">
+                                        About Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Legal
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Privacy Policy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Terms of Service
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Cookie Policy
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                <!-- LinkedIn Icon -->
-                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
-                    <a href="#">
-                        <i
-                            class="fa-brands fa-linkedin-in text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
-                    </a>
-                    <div
-                        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 transform scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
-                        LinkedIn
-                    </div>
-                </div>
-
-                <!-- Email Icon -->
-                <div class="relative group hover:cursor-pointer rounded-full transition-all duration-500">
-                    <a href="mailto:erblinthaqi40@gmail.com">
-                        <i
-                            class="fa-regular fa-envelope text-[#308d46] text-xl hover:text-[#296e38] transition-all duration-500"></i>
-                    </a>
-
-                    <div
-                        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-max px-2 py-1 text-white bg-black rounded-md opacity-0 transform scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
-                        Email
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Contact
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="mailto:info@techinsights.com"
+                                        class="text-base text-gray-400 hover:text-white">
+                                        info@techinsights.com
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:+1234567890" class="text-base text-gray-400 hover:text-white">
+                                        +1 (234) 567-890
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="text-base text-gray-400">
+                                        123 Tech Street, San Francisco, CA
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Newsletter
+                            </h3>
+                            <p class="mt-4 text-base text-gray-400">
+                                Subscribe to our newsletter for the latest updates.
+                            </p>
+                            <form class="mt-4 sm:flex sm:max-w-md">
+                                <label for="footer-email" class="sr-only">Email address</label>
+                                <input type="email" name="email" id="footer-email" required
+                                    class="appearance-none min-w-0 w-full bg-gray-700 border border-transparent rounded-md py-2 px-4 text-base text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white"
+                                    placeholder="Enter your email">
+                                <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                                    <button type="submit"
+                                        class="w-full bg-primary border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                                        Sign up
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-
+            <div class="mt-12 border-t border-gray-700 pt-8">
+                <p class="text-base text-gray-400 text-center">
+                    &copy; 2023 TechInsights. All rights reserved.
+                </p>
+            </div>
         </div>
     </footer>
 
-    <script defer src="./javascipt/index.js"></script>
+    <script src="./javascipt/index.js"></script>
 </body>
 
 </html>

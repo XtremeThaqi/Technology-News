@@ -1,53 +1,40 @@
-// Mobile Menu for all pages
-const openMenu = document.getElementById("openMenu");
-openMenu.addEventListener("click", () => {
-  const mobileMenu = document.querySelector(".mobile-menu");
-  mobileMenu.classList.toggle("hidden"); // toggle the class hidden or not
+// Mobile menu toggle
+document
+  .getElementById("mobile-menu-button")
+  .addEventListener("click", function () {
+    const menu = document.getElementById("mobile-menu");
+    menu.classList.toggle("open");
+  });
+
+// Category filtering
+const filterButtons = document.querySelectorAll("#all, #tech, #business");
+const allArticles = document.querySelectorAll(".article");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+   filterButtons.forEach((btn) => {
+  const isActive = btn === this;
+  btn.classList.toggle("bg-blue-500", isActive);
+  btn.classList.toggle("text-white", isActive);
+  btn.classList.toggle("bg-gray-200", !isActive);
+  btn.classList.toggle("text-gray-800", !isActive);
 });
 
-// //
-// // 
-
-// Buttons
-const allBtn = document.getElementById("all");
-const techBtn = document.getElementById("tech");
-const businessBtn = document.getElementById("business");
-
-// Sections
-const techSection = document.querySelectorAll("#tech-section");
-const businessSection = document.querySelectorAll("#business-section");
-
-// Show All Sections
-allBtn.addEventListener('click', () => {
-  techSection.forEach(e => e.style.display = 'block');
-  businessSection.forEach(e => e.style.display = 'block');
+    // Filter articles
+    const filter = this.id; // "all", "tech", "business"
+    allArticles.forEach((article) => {
+      const category = article.dataset.category;
+      article.style.display =
+        filter === "all" || category === filter ? "block" : "none";
+    });
+  });
 });
 
-// Show Tech Sections
-techBtn.addEventListener('click', () => {
-  techSection.forEach(e => e.style.display = 'block');
-  businessSection.forEach(e => e.style.display = 'none');
-});
-
-// Show Business Sections
-businessBtn.addEventListener('click', () => {
-  techSection.forEach(e => e.style.display = 'none');
-  businessSection.forEach(e => e.style.display = 'block');
-});
-// End
-
-// Subscribe Form Event
-const homeModal = document.getElementById('modal');
-const form = document.getElementById('subscription-form');
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault(); // prevent from reloading
-  homeModal.style.display = "flex"; // show modal
-  form.reset(); // clear the form
-});
-
-// Close the Modal
-const closeModal = document.getElementById('closeModal');
-closeModal.addEventListener('click', () => {
-  homeModal.style.display = 'none'
-})
+// Form submission
+document
+  .getElementById("subscription-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Thank you for subscribing!");
+    this.reset();
+  });
